@@ -9,6 +9,7 @@ public class CaptainController : MonoBehaviour
     private ICaptainCommand Fire2;
     private ICaptainCommand Right;
     private ICaptainCommand Left;
+    private ICaptainCommand Jump;
     private const int MUSHROOM_VALUE = 1;
     private const int SKULL_VALUE = 2;
     private const int GEM_VALUE = 3;
@@ -26,6 +27,7 @@ public class CaptainController : MonoBehaviour
         this.gameObject.AddComponent<CaptainCoinGun>();
         this.Fire1 = this.gameObject.GetComponent<CaptainMotivateCommand>();
         this.Fire2 = this.gameObject.GetComponent<CaptainCoinGun>();
+        this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
         this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
         this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
         this.Booty.text = "Booty";
@@ -37,6 +39,10 @@ public class CaptainController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             this.Fire1.Execute(this.gameObject);
+        }
+        if (Input.GetButtonDown("Jump"))
+        {
+            this.Jump.Execute(this.gameObject);
         }
         if (Input.GetButtonDown("Fire2"))
         {
