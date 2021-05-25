@@ -30,7 +30,7 @@ public class CaptainController : MonoBehaviour
         this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
         this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
         this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
-        this.Booty.text = "Booty";
+        //this.Booty.text = "Booty";
     }
 
     // Update is called once per frame
@@ -68,7 +68,7 @@ public class CaptainController : MonoBehaviour
 
         var animator = this.gameObject.GetComponent<Animator>();
         animator.SetFloat("Velocity", Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x/5.0f));
-        this.Booty.text = "x" + Coins;
+        //this.Booty.text = "x" + Coins;
     }
 
     // Updated the collection system. The number of mushrooms, skulls, and gems will still
