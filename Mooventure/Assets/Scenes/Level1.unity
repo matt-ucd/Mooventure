@@ -2209,6 +2209,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420035}
   - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
@@ -2305,7 +2306,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9665d5a912e3d104d94566ccecee7087, type: 3}
   m_Name: 
@@ -2415,6 +2416,24 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26adc3ffc8d500a4b824b66a0806e86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DrawLogic: 1
+  FocusDistance: 0
+  ThresholdDistance: 0
+  LeftStageEdge: -5
+  RightStageEdge: 7
+  Target: {fileID: 606548955}
 --- !u!1 &531636488
 GameObject:
   m_ObjectHideFlags: 0
