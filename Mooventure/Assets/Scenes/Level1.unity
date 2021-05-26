@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParallaxMagnitude: 0.95
-  Cam: {fileID: 0}
+  Cam: {fileID: 519420031}
 --- !u!212 &363963184
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3267,7 +3267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParallaxMagnitude: 0.1
-  Cam: {fileID: 0}
+  Cam: {fileID: 519420031}
 --- !u!212 &679214571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3367,7 +3367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParallaxMagnitude: 0.95
-  Cam: {fileID: 0}
+  Cam: {fileID: 519420031}
 --- !u!212 &681199220
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4700,7 +4700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParallaxMagnitude: 1
-  Cam: {fileID: 0}
+  Cam: {fileID: 519420031}
 --- !u!212 &1072146187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4966,7 +4966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParallaxMagnitude: 0.05
-  Cam: {fileID: 0}
+  Cam: {fileID: 519420031}
 --- !u!212 &1085997627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7511,7 +7511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParallaxMagnitude: 1
-  Cam: {fileID: 0}
+  Cam: {fileID: 519420031}
 --- !u!212 &1801766318
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8002,12 +8002,12 @@ PrefabInstance:
     - target: {fileID: 8768286367827014160, guid: 3fe587587ee1b4b33a8f7ae7ff738853,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.49
+      value: -17.1
       objectReference: {fileID: 0}
     - target: {fileID: 8768286367827014160, guid: 3fe587587ee1b4b33a8f7ae7ff738853,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.92
+      value: -3.99
       objectReference: {fileID: 0}
     - target: {fileID: 8768286367827014160, guid: 3fe587587ee1b4b33a8f7ae7ff738853,
         type: 3}
