@@ -2429,8 +2429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DrawLogic: 1
-  FocusDistance: 0
-  ThresholdDistance: 0
+  FocusDistance: 1.5
+  ThresholdDistance: 4.5
+  LerpDuration: 0.35
   LeftStageEdge: -5
   RightStageEdge: 7
   Target: {fileID: 606548955}
