@@ -7,6 +7,7 @@ public class DualForwardFocusCamera: MonoBehaviour
     [SerializeField] private bool DrawLogic;
     [SerializeField] private float FocusDistance;
     [SerializeField] private float ThresholdDistance;
+    [SerializeField] private float LerpDuration;
     public float LeftStageEdge;
     public float RightStageEdge;
     public GameObject Target;
@@ -17,7 +18,12 @@ public class DualForwardFocusCamera: MonoBehaviour
     private float LeftThresholdBound;
     private float RightFocusBound;
     private float RightThresholdBound;
-    private float BoundDistance;
+    private float Interpolant;
+    private float LerpTimer;
+    private float CameraOffsetX;
+    private bool IsLerping = false;
+    private Vector3 CameraPosition;
+    private Vector3 CameraFrom;
 
     void Start()
     {
@@ -26,34 +32,79 @@ public class DualForwardFocusCamera: MonoBehaviour
         this.PlayerController = this.Target.GetComponent<CaptainController>();
         
         // Initial camera settings.
-        this.transform.position = new Vector3(this.Target.transform.position.x, this.transform.position.y, this.transform.position.z);
+        /*
+        this.transform.position = new Vector3(this.Target.transform.position.x - FocusDistance, this.transform.position.y, this.transform.position.z);
         this.LeftFocusBound= this.transform.position.x - FocusDistance;
         this.LeftThresholdBound = this.transform.position.x - ThresholdDistance;
         this.RightFocusBound = this.transform.position.x + FocusDistance;
         this.RightThresholdBound = this.transform.position.x + ThresholdDistance;
+        */
+        this.CameraPosition = new Vector3(this.Target.transform.position.x - FocusDistance, this.transform.position.y, this.transform.position.z);
+        this.LeftThresholdBound = this.CameraPosition.x - this.ThresholdDistance;
+        this.LeftFocusBound = this.CameraPosition.x - this.FocusDistance;
+        this.RightFocusBound = this.transform.position.x + this.FocusDistance;
+        this.RightThresholdBound = this.transform.position.x + this.ThresholdDistance;
     }
     
     void LateUpdate()
     {
-        var cameraPosition = this.transform.position;
         var targetPosition = this.Target.transform.position;
 
-        if ((targetPosition.x > LeftFocusBound) && (targetPosition.x < cameraPosition.x))
+        if (targetPosition.x < this.CameraPosition.x)
         {
-            cameraPosition.x = targetPosition.x + FocusDistance;
-            //cameraPosition = new Vector3(targetPosition.x - BoundDistance, cameraPosition.y, cameraPosition.z);
+            if (targetPosition.x > this.LeftFocusBound)
+            {
+                this.CameraPosition.x = targetPosition.x + this.FocusDistance;
+            }
+            else if ((targetPosition.x < this.LeftThresholdBound) && !IsLerping)
+            {
+                this.LerpTimer = 0;
+                this.IsLerping = true;
+                this.CameraFrom = this.CameraPosition;
+                this.CameraOffsetX = -FocusDistance;
+                //this.CameraPosition.x = targetPosition.x - FocusDistance;
+            }
         }
-        else if ((targetPosition.x < RightFocusBound) && (targetPosition.x > cameraPosition.x))
+        else
         {
-            cameraPosition.x = targetPosition.x - FocusDistance;
-            //cameraPosition = new Vector3(targetPosition.x + BoundDistance, cameraPosition.y, cameraPosition.z);
+            if (targetPosition.x < this.RightFocusBound)
+            {
+                this.CameraPosition.x = targetPosition.x - this.FocusDistance;
+            }
+            else if ((targetPosition.x > this.RightThresholdBound) && !IsLerping)
+            {
+                this.LerpTimer = 0;
+                this.IsLerping = true;
+                this.CameraFrom = this.CameraPosition;
+                this.CameraOffsetX = FocusDistance;
+                //this.CameraPosition.x = targetPosition.x + FocusDistance;
+            }
         }
 
-        this.LeftFocusBound = cameraPosition.x - this.FocusDistance;
-        this.LeftThresholdBound = cameraPosition.x - this.ThresholdDistance;
-        this.RightFocusBound = cameraPosition.x + this.FocusDistance;
-        this.RightThresholdBound = cameraPosition.x + this.ThresholdDistance;
-        this.transform.position = cameraPosition;
+        // Update timing, interpolant.
+        this.LerpTimer += Time.deltaTime;
+        this.Interpolant = this.LerpTimer / this.LerpDuration;
+
+        // If the camera has started to lerp, override any other changes and move to lerp position.
+        if (IsLerping)
+        {
+            Vector3 cameraTo = new Vector3(targetPosition.x + this.CameraOffsetX, this.CameraPosition.y, this.CameraPosition.z);
+            this.CameraPosition = Vector3.Lerp(this.CameraFrom, cameraTo, this.Interpolant);
+
+            // Once the timer has exceeded the lerp duration, end the lerp.
+            if (this.LerpTimer >= this.LerpDuration)
+            {
+                this.IsLerping = false;
+            }
+        }
+
+        // Update the camera bounds.
+        this.LeftFocusBound = this.CameraPosition.x - this.FocusDistance;
+        this.LeftThresholdBound = this.CameraPosition.x - this.ThresholdDistance;
+        this.RightFocusBound = this.CameraPosition.x + this.FocusDistance;
+        this.RightThresholdBound = this.CameraPosition.x + this.ThresholdDistance;
+
+        this.transform.position = this.CameraPosition;
 
         if (this.DrawLogic)
         {
