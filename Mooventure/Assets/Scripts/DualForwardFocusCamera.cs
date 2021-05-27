@@ -21,24 +21,19 @@ public class DualForwardFocusCamera: MonoBehaviour
     private float Interpolant;
     private float LerpTimer;
     private float CameraOffsetX;
+    private bool AtScreenEdge = false;
     private bool IsLerping = false;
     private Vector3 CameraPosition;
     private Vector3 CameraFrom;
 
     void Start()
     {
+        // Set primary objects.
         this.CameraLineRenderer = this.gameObject.GetComponent<LineRenderer>();
         this.ManagedCamera = this.gameObject.GetComponent<Camera>();
         this.PlayerController = this.Target.GetComponent<CaptainController>();
         
         // Initial camera settings.
-        /*
-        this.transform.position = new Vector3(this.Target.transform.position.x - FocusDistance, this.transform.position.y, this.transform.position.z);
-        this.LeftFocusBound= this.transform.position.x - FocusDistance;
-        this.LeftThresholdBound = this.transform.position.x - ThresholdDistance;
-        this.RightFocusBound = this.transform.position.x + FocusDistance;
-        this.RightThresholdBound = this.transform.position.x + ThresholdDistance;
-        */
         this.CameraPosition = new Vector3(this.Target.transform.position.x - FocusDistance, this.transform.position.y, this.transform.position.z);
         this.LeftThresholdBound = this.CameraPosition.x - this.ThresholdDistance;
         this.LeftFocusBound = this.CameraPosition.x - this.FocusDistance;
@@ -50,9 +45,12 @@ public class DualForwardFocusCamera: MonoBehaviour
     {
         var targetPosition = this.Target.transform.position;
 
+        // Check which side of the screen the player is currently located to
+        // determine which set of bounds to check
         if (targetPosition.x < this.CameraPosition.x)
         {
-            if (targetPosition.x > this.LeftFocusBound)
+            // If the player is on the left side, check the left bounds.
+            if (targetPosition.x > this.LeftFocusBound && !AtScreenEdge)
             {
                 this.CameraPosition.x = targetPosition.x + this.FocusDistance;
             }
@@ -62,12 +60,14 @@ public class DualForwardFocusCamera: MonoBehaviour
                 this.IsLerping = true;
                 this.CameraFrom = this.CameraPosition;
                 this.CameraOffsetX = -FocusDistance;
+                this.AtScreenEdge = false;
                 //this.CameraPosition.x = targetPosition.x - FocusDistance;
             }
         }
         else
         {
-            if (targetPosition.x < this.RightFocusBound)
+            // If the player is on the right side, check the right bounds.
+            if (targetPosition.x < this.RightFocusBound && !AtScreenEdge)
             {
                 this.CameraPosition.x = targetPosition.x - this.FocusDistance;
             }
@@ -77,11 +77,12 @@ public class DualForwardFocusCamera: MonoBehaviour
                 this.IsLerping = true;
                 this.CameraFrom = this.CameraPosition;
                 this.CameraOffsetX = FocusDistance;
+                this.AtScreenEdge = false;
                 //this.CameraPosition.x = targetPosition.x + FocusDistance;
             }
         }
 
-        // Update timing, interpolant.
+        // Update timing and interpolant.
         this.LerpTimer += Time.deltaTime;
         this.Interpolant = this.LerpTimer / this.LerpDuration;
 
@@ -98,14 +99,31 @@ public class DualForwardFocusCamera: MonoBehaviour
             }
         }
 
+        // If the camera has exceeded the bound of the level, reset it to the stage edge.
+        if (this.CameraPosition.x < LeftStageEdge)
+        {
+            this.CameraPosition.x = LeftStageEdge;
+            this.IsLerping = false;
+            this.AtScreenEdge = true;
+
+        }
+        else if (this.CameraPosition.x > RightStageEdge)
+        {
+            this.CameraPosition.x = RightStageEdge;
+            this.IsLerping = false;
+            this.AtScreenEdge = true;
+        }
+
         // Update the camera bounds.
         this.LeftFocusBound = this.CameraPosition.x - this.FocusDistance;
         this.LeftThresholdBound = this.CameraPosition.x - this.ThresholdDistance;
         this.RightFocusBound = this.CameraPosition.x + this.FocusDistance;
         this.RightThresholdBound = this.CameraPosition.x + this.ThresholdDistance;
 
+        // Reposition the camera.
         this.transform.position = this.CameraPosition;
 
+        // If enabled, draw line renderer to show camera bounds.
         if (this.DrawLogic)
         {
             this.CameraLineRenderer.enabled = true;
