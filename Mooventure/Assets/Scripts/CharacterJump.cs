@@ -8,7 +8,7 @@ namespace Captain.Command
 {
     public class CharacterJump : ScriptableObject, ICaptainCommand
     {
-        private float jump = 5.0f;
+        private float jump = 10.0f;
         // A speed will be assign at begining. This variable decide how high will captain jump.
 
         public void Execute(GameObject gameObject)

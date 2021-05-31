@@ -101,5 +101,9 @@ public class CaptainController : MonoBehaviour
             Destroy(collision.gameObject);
             this.Coins++;
         }
+        else if (collision.gameObject.tag == "Turkey")
+        {
+            Debug.Log("Ran into turkey!");
+        }
     }
 }
