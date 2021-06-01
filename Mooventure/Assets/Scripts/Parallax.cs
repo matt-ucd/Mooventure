@@ -24,12 +24,12 @@ public class Parallax : MonoBehaviour
 
         this.transform.position = new Vector3(this.SpriteLeft + distToSpriteEnd, this.transform.position.y, this.transform.position.z);
 
-        if (distAlongSprite > this.SpriteLeft + this.SpriteLength)
+        /*if (distAlongSprite > this.SpriteLeft + this.SpriteLength)
         {
             this.SpriteLeft += this.SpriteLength;
         } else if (distAlongSprite < this.SpriteLeft - this.SpriteLength)
         {
             this.SpriteLeft -= this.SpriteLength;
-        }
+        }*/
     }
 }
