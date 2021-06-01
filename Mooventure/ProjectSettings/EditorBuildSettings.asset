@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: bb6e45cb6a6489246bfa824b124db4ab
   - enabled: 1
+    path: Assets/Scenes/Dorm.unity
+    guid: 8489a22176dbf924287b38b72ed75972
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: aafa92460bd5a5e4fa8343fc94dc407c
   m_configObjects: {}
