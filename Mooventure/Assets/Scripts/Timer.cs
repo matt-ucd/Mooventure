@@ -9,6 +9,9 @@ public class Timer : MonoBehaviour
     public Text timerText;
     private bool isTimerRunning = false;
 
+    [SerializeField] private GameObject window;
+    [SerializeField] private GameObject parent;
+
     void Start()
     {
         isTimerRunning = true;
@@ -28,6 +31,7 @@ public class Timer : MonoBehaviour
                 Debug.Log("Run out of time! Fail window show up!");
                 remainingTime = 0;
                 isTimerRunning = false;
+                Instantiate(window, parent.transform);
             }
         }
 
