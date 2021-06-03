@@ -17,7 +17,7 @@ public class TurkeyController : MonoBehaviour
     private float RightAggroBound;
     private float RightIdleBound;
     private int Direction = 1;
-    private bool IsFacingLeft;
+    //private bool IsFacingLeft;
     private bool IsAggro = false;
 
     void Start()
@@ -35,13 +35,13 @@ public class TurkeyController : MonoBehaviour
         if (this.TurkeyPosition.x <= LeftIdleBound)
         {
             this.Direction = 1;
-            this.IsFacingLeft = false;
+            //this.IsFacingLeft = false;
             GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (this.TurkeyPosition.x >= RightIdleBound)
         {
             this.Direction = -1;
-            this.IsFacingLeft = true;
+            //this.IsFacingLeft = true;
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
@@ -53,13 +53,13 @@ public class TurkeyController : MonoBehaviour
         if (this.TurkeyPosition.x > this.PlayerPosition.x)
         {
             this.Direction = -1;
-            this.IsFacingLeft = true;
+            //this.IsFacingLeft = true;
             GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (this.TurkeyPosition.x < this.PlayerPosition.x)
         {
             this.Direction = 1;
-            this.IsFacingLeft = false;
+            //this.IsFacingLeft = false;
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
