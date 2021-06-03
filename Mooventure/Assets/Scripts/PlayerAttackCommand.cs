@@ -7,60 +7,41 @@ namespace Player.Command
 {
     public class PlayerAttackCommand : MonoBehaviour, IPlayerCommand 
     {
-        private bool Active;
         private const float DURATION = 0.167f;
-        private const float OFFSET = 0.2f;
-        private float ElapsedTime;
-        private GameObject Motivator;
-        private BoxCollider2D MotivationBox;
+        public Animator Animator;
+        public Transform AttackPoint;
+        public float AttackRange = 0.7f;
+        public LayerMask EnemyLayer;
+
 
         void Start()
         {
-            this.ElapsedTime = 0.0f;
-            this.Active = false;
         }
 
         void Update()
         {
-            if (this.Active)
+            
+        }
+        public void Execute(GameObject gameObject)
+        {
+            this.Animator = gameObject.GetComponent<Animator>();
+            this.Animator.SetTrigger("Attack");
+            this.AttackPoint = gameObject.transform.GetChild(0);
+            this.EnemyLayer |= (1 << LayerMask.NameToLayer("Item"));
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(this.AttackPoint.position, this.AttackRange, this.EnemyLayer);
+            foreach (Collider2D enemy in hitEnemies)
             {
-                this.ElapsedTime += Time.deltaTime;
-                if (this.ElapsedTime > OFFSET)
-                {
-                    var contacts = new Collider2D[32];
-                    this.MotivationBox.GetContacts(contacts);
-
-                    foreach (var col in contacts)
-                    {
-
-                        if (col != null && col.gameObject != null && col.gameObject.tag == "Pirate")
-                        {
-                            col.gameObject.GetComponent<PirateController>().Motivate();
-                            this.Active = false;
-                        }
-                        break;
-                    }
-
-                    if (this.ElapsedTime > DURATION || !this.Active)
-                    {
-                        this.Active = false;
-
-                    }
-
-                }
-                this.Motivator.GetComponent<Animator>().SetBool("Motivate", this.Active);
+                Debug.Log("We hit " + enemy.name);
             }
         }
 
-        public void Execute(GameObject gameObject)
+        void OnDrawGizmosSelected()
         {
-            if(!this.Active)
-            {
-                this.ElapsedTime = 0.0f;
-                this.Active = true;
-                this.Motivator = gameObject;
-                this.MotivationBox = this.Motivator.transform.Find("Motivator").GetComponent<BoxCollider2D>();
-            }
+            if (this.AttackPoint == null)
+                return;
+
+            Gizmos.DrawWireSphere(this.AttackPoint.position, this.AttackRange);
         }
     }
 }

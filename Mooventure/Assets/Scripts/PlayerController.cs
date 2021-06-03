@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this.Fire1 = this.gameObject.GetComponent<CaptainMotivateCommand>();
+        this.gameObject.AddComponent<PlayerAttackCommand>();
+        this.Fire1 = this.gameObject.GetComponent<PlayerAttackCommand>();
         //this.Fire2 = this.gameObject.GetComponent<CaptainCoinGun>();
         this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
         this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
