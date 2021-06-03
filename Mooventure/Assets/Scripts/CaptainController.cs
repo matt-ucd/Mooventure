@@ -13,16 +13,20 @@ public class CaptainController : MonoBehaviour
     private const int MUSHROOM_VALUE = 1;
     private const int SKULL_VALUE = 2;
     private const int GEM_VALUE = 3;
+    //private float pushAmount = 0;
 
     public UnityEngine.UI.Text Booty;
     public int Mushrooms;
     public int Skulls;
     public int Gems;
     public int Coins;
+    //public float libPositionX;
+    public float goalMarkPositionX;
 
     // Start is called before the first frame update
     void Start()
     {
+        this.transform.rotation = Quaternion.Euler(0, 0, 0); // lock rotation
         this.gameObject.AddComponent<CaptainMotivateCommand>();
         this.gameObject.AddComponent<CaptainCoinGun>();
         this.Fire1 = this.gameObject.GetComponent<CaptainMotivateCommand>();
@@ -36,6 +40,7 @@ public class CaptainController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.transform.rotation = Quaternion.Euler(0, 0, 0); // lock rotation
         if (Input.GetButtonDown("Fire1"))
         {
             this.Fire1.Execute(this.gameObject);
@@ -69,6 +74,12 @@ public class CaptainController : MonoBehaviour
         var animator = this.gameObject.GetComponent<Animator>();
         animator.SetFloat("Velocity", Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x/5.0f));
         //this.Booty.text = "x" + Coins;
+
+        if (this.transform.position.x >= this.goalMarkPositionX)
+        {
+            // pop up success window, audio clip
+            Debug.Log("not colliding but checking x position! Arrive! pop up success window!");
+        }
     }
 
     // Updated the collection system. The number of mushrooms, skulls, and gems will still
@@ -104,6 +115,12 @@ public class CaptainController : MonoBehaviour
         else if (collision.gameObject.tag == "Turkey")
         {
             Debug.Log("Ran into turkey!");
+        }
+        else if (collision.gameObject.tag == "Goal_Mark")
+        {
+            // pop up success window, audio clip
+            Debug.Log("Arrive! pop up success window!");
+            // not working
         }
     }
 }

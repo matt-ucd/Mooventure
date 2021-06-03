@@ -22,6 +22,7 @@ public class TurkeyController : MonoBehaviour
 
     void Start()
     {
+        this.transform.rotation = Quaternion.Euler(0, 0, 0); // lock rotation
         this.SpawnPointX = this.transform.position.x;
         this.LeftIdleBound = this.SpawnPointX - this.IdleDistance;
         this.RightIdleBound = this.SpawnPointX + this.IdleDistance;
@@ -36,13 +37,13 @@ public class TurkeyController : MonoBehaviour
         {
             this.Direction = 1;
             this.IsFacingLeft = false;
-            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (this.TurkeyPosition.x >= RightIdleBound)
         {
             this.Direction = -1;
             this.IsFacingLeft = true;
-            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
 
         this.TurkeyRB.velocity = new Vector2(this.IdleSpeed * this.Direction, this.TurkeyRB.velocity.y);
@@ -54,13 +55,13 @@ public class TurkeyController : MonoBehaviour
         {
             this.Direction = -1;
             this.IsFacingLeft = true;
-            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (this.TurkeyPosition.x < this.PlayerPosition.x)
         {
             this.Direction = 1;
             this.IsFacingLeft = false;
-            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
 
         this.TurkeyRB.velocity = new Vector2(this.AggroSpeed * this.Direction, this.TurkeyRB.velocity.y);
@@ -68,12 +69,17 @@ public class TurkeyController : MonoBehaviour
 
     void Update()
     {
+        this.transform.rotation = Quaternion.Euler(0, 0, 0); // lock rotation
         this.TurkeyPosition = this.transform.position;
-        this.PlayerPosition = GameObject.Find("Captain").transform.position;
+        this.PlayerPosition = GameObject.Find("Player").transform.position;
 
         if (Vector3.Distance(this.TurkeyPosition, this.PlayerPosition) <= this.AggroDistance)
         {
             this.IsAggro = true;
+        }
+        else
+        {
+            this.IsAggro = false;
         }
 
         if (!this.IsAggro)
