@@ -27,13 +27,13 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## User Interface
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
+
 We created our own UI kit to fit in the idea and the goal of our game better. Since our game are designed to happen on the campus of UC Davis, and we are trying to introduce 
 the buildings and fun places on campus, we decided to use cow-print and the orange and blue shade colors that mimics the UC Davis gold and Aggie blue as our theme colors. 
 The frames of the UI windows are designed with cow-print, while the buttons are in gold and Aggie blue to make the scenes look more vivid.
 
 In the level (gameplay) scene, we have a distance bar on the top left to show the distance the player moved towards the goal place. In this way, the player can easily know 
-how far they need to go to hit the goal place. At the same time, there is a timer on the top right to limit the time for the player. The pause button allows the player to stop 
-in the middle of the game and resume later.
+how far they need to go to hit the goal place. At the same time, there is a timer on the top right to limit the time for the player. The pause button allows the player to stop in the middle of the game and resume later.
 
 The button icons and player icons are designed to match the cow-print black and white color theme. The fonts of the texts are from Dafont.com, and we chose the ones with a 
 hand-written style to make the game feel more casual and fun. All texts are designed to have a white highlight and a black shadow in the back to create a pop-up effect, which 
@@ -90,6 +90,7 @@ makes it clearer to read.
 ## Game Feel
 
 **Document what you added to and how you tweaked your game to improve its game feel.**
+
 1. We consciously noticed that it would be helpful to have a introduction and a brief tutorial before the game starts. However, we debated about how to encourage the players 
 to watch the tutorial. We thought about having an attention-attracting "intro" button or giving a forced tutorial at the beginning. After discussions, we decided to add a 
 pop-up window at the beginning, where when you click on the "start" button, it will ask you to go over an introduction. After you finished it or skipped it, you can still 
