@@ -62,5 +62,10 @@ namespace Captain.Command
                 this.MotivationBox = this.Motivator.transform.Find("Motivator").GetComponent<BoxCollider2D>();
             }
         }
+
+        public void Change_speed(int spd)
+        {
+            //Do nothing
+        }
     }
 }

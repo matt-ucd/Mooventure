@@ -26,5 +26,10 @@ namespace Captain.Command
                 // to jump again befor he get back to the ground.
             }
         }
+
+        public void Change_speed(int spd)
+        {
+            //Do nothing
+        }
     }
 }

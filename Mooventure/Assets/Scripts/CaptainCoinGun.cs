@@ -87,5 +87,10 @@ namespace Captain.Command
                 this.CoinPrefab = Resources.Load("Prefabs/Coin");
             }
         }
+
+        public void Change_speed(int spd)
+        {
+            //Do nothing
+        }
     }
 }

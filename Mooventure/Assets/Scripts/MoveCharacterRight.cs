@@ -8,7 +8,7 @@ namespace Captain.Command
 {
     public class MoveCharacterRight : ScriptableObject, ICaptainCommand
     {
-        private float Speed = 5.0f;
+        public float Speed = 5.0f;
 
         public void Execute(GameObject gameObject)
         {
@@ -18,6 +18,11 @@ namespace Captain.Command
                 rigidBody.velocity = new Vector2(this.Speed, rigidBody.velocity.y);
                 gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
+        }
+
+        public void Change_speed(int spd)
+        {
+            this.Speed = spd;
         }
     }
 }

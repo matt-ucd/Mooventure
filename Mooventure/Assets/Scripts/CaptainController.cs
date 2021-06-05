@@ -17,6 +17,7 @@ public class CaptainController : MonoBehaviour
     private const int SKULL_VALUE = 2;
     private const int GEM_VALUE = 3;
     private int window_done = 0;
+    private float energy_time_count = 0;
     //private float pushAmount = 0;
 
     public UnityEngine.UI.Text Booty;
@@ -88,6 +89,15 @@ public class CaptainController : MonoBehaviour
                 Time.timeScale = 0.0f;
             }
         }
+        if (energy_time_count != 0)
+        {
+            energy_time_count -= Time.deltaTime;
+            if (energy_time_count <= 0.1f)
+            {
+                this.Right.Change_speed(5);
+                this.Left.Change_speed(5);
+            }
+        }
     }
 
     // Updated the collection system. The number of mushrooms, skulls, and gems will still
@@ -124,9 +134,12 @@ public class CaptainController : MonoBehaviour
         {
             Debug.Log("Ran into turkey!");
         }
-        else if (collision.gameObject.tag == "Goal_Mark")
+        else if (collision.gameObject.tag == "ED")
         {
-            Instantiate(window, parent.transform);
+            Destroy(collision.gameObject);
+            this.Right.Change_speed(10);
+            this.Left.Change_speed(10);
+            energy_time_count = 5.0f;
         }
     }
 }
