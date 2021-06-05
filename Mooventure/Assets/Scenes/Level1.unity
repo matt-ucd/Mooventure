@@ -8376,7 +8376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116caf1077aa3fb4cb91ad9fac33ef62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   window: {fileID: 81247766401102907, guid: 6a14be9a89f226244ae58e9f930e7821, type: 3}
   parent: {fileID: 279806185}
   Booty: {fileID: 0}
@@ -8385,10 +8384,8 @@ MonoBehaviour:
   Gems: 0
   Coins: 0
   goalMarkPositionX: 164
-=======
   MoveSpeed: 7
   JumpHeight: 22
->>>>>>> player_updates
 --- !u!61 &1598601745
 BoxCollider2D:
   m_ObjectHideFlags: 0

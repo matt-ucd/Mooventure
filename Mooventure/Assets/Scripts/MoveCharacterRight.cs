@@ -8,10 +8,6 @@ namespace Player.Command
 {
     public class MoveCharacterRight : ScriptableObject, IPlayerCommand
     {
-<<<<<<< HEAD
-        public float Speed = 5.0f;
-=======
->>>>>>> player_updates
 
         public void Execute(GameObject gameObject)
         {
@@ -22,11 +18,6 @@ namespace Player.Command
                 rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
                 gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
-        }
-
-        public void Change_speed(int spd)
-        {
-            this.Speed = spd;
         }
     }
 }

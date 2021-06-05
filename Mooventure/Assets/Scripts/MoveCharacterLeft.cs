@@ -18,10 +18,5 @@ namespace Player.Command
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
             }
         }
-
-        public void Change_speed(int spd)
-        {
-            this.Speed = spd;
-        }
     }
 }
