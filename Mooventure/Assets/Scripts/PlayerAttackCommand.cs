@@ -32,7 +32,7 @@ namespace Player.Command
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(this.AttackPoint.position, this.AttackRange, this.EnemyLayer);
             foreach (Collider2D enemy in hitEnemies)
             {
-                Debug.Log("We hit " + enemy.name);
+                enemy.GetComponent<TurkeyController>().Damaged();
             }
         }
 

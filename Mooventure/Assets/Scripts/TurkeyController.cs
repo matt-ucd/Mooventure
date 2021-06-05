@@ -11,6 +11,7 @@ public class TurkeyController : MonoBehaviour
     private Vector3 PlayerPosition;
     private Vector3 TurkeyPosition;
     private Rigidbody2D TurkeyRB;
+    private float FleePointX;
     private float SpawnPointX;
     private float LeftAggroBound;
     private float LeftIdleBound;
@@ -19,6 +20,7 @@ public class TurkeyController : MonoBehaviour
     private int Direction = 1;
     //private bool IsFacingLeft;
     private bool IsAggro = false;
+    private bool IsFleeing = false;
 
     void Start()
     {
@@ -66,6 +68,17 @@ public class TurkeyController : MonoBehaviour
         this.TurkeyRB.velocity = new Vector2(this.AggroSpeed * this.Direction, this.TurkeyRB.velocity.y);
     }
 
+    void FleeingTurkey()
+    {
+
+    }
+
+    public void Damaged()
+    {
+        Debug.Log("Turkey runs away!");
+        this.FleePointX = this.transform.position.x;
+    }
+
     void Update()
     {
         this.TurkeyPosition = this.transform.position;
@@ -76,13 +89,17 @@ public class TurkeyController : MonoBehaviour
             this.IsAggro = true;
         }
 
-        if (!this.IsAggro)
+        if (this.IsAggro)
         {
-            this.IdleTurkey();
+            this.AggroTurkey();
+        }
+        else if (this.IsFleeing)
+        {
+            this.FleeingTurkey();
         }
         else
         {
-            this.AggroTurkey();
+            this.IdleTurkey();
         }
     }
 }
