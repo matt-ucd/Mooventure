@@ -11,14 +11,16 @@ public class TurkeyController : MonoBehaviour
     private Vector3 PlayerPosition;
     private Vector3 TurkeyPosition;
     private Rigidbody2D TurkeyRB;
+    private float FleePointX;
     private float SpawnPointX;
     private float LeftAggroBound;
     private float LeftIdleBound;
     private float RightAggroBound;
     private float RightIdleBound;
     private int Direction = 1;
-    private bool IsFacingLeft;
+    //private bool IsFacingLeft;
     private bool IsAggro = false;
+    private bool IsFleeing = false;
 
     void Start()
     {
@@ -36,13 +38,13 @@ public class TurkeyController : MonoBehaviour
         if (this.TurkeyPosition.x <= LeftIdleBound)
         {
             this.Direction = 1;
-            this.IsFacingLeft = false;
+            //this.IsFacingLeft = false;
             GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (this.TurkeyPosition.x >= RightIdleBound)
         {
             this.Direction = -1;
-            this.IsFacingLeft = true;
+            //this.IsFacingLeft = true;
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
@@ -54,17 +56,28 @@ public class TurkeyController : MonoBehaviour
         if (this.TurkeyPosition.x > this.PlayerPosition.x)
         {
             this.Direction = -1;
-            this.IsFacingLeft = true;
+            //this.IsFacingLeft = true;
             GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (this.TurkeyPosition.x < this.PlayerPosition.x)
         {
             this.Direction = 1;
-            this.IsFacingLeft = false;
+            //this.IsFacingLeft = false;
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
         this.TurkeyRB.velocity = new Vector2(this.AggroSpeed * this.Direction, this.TurkeyRB.velocity.y);
+    }
+
+    void FleeingTurkey()
+    {
+
+    }
+
+    public void Damaged()
+    {
+        Debug.Log("Turkey runs away!");
+        this.FleePointX = this.transform.position.x;
     }
 
     void Update()
@@ -82,13 +95,17 @@ public class TurkeyController : MonoBehaviour
             this.IsAggro = false;
         }
 
-        if (!this.IsAggro)
+        if (this.IsAggro)
         {
-            this.IdleTurkey();
+            this.AggroTurkey();
+        }
+        else if (this.IsFleeing)
+        {
+            this.FleeingTurkey();
         }
         else
         {
-            this.AggroTurkey();
+            this.IdleTurkey();
         }
     }
 }

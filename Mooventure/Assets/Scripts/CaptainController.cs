@@ -36,9 +36,9 @@ public class CaptainController : MonoBehaviour
         this.gameObject.AddComponent<CaptainCoinGun>();
         this.Fire1 = this.gameObject.GetComponent<CaptainMotivateCommand>();
         this.Fire2 = this.gameObject.GetComponent<CaptainCoinGun>();
-        this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
-        this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
-        this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
+        //this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
+        //this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
+        //this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
         //this.Booty.text = "Booty";
     }
 
@@ -77,7 +77,9 @@ public class CaptainController : MonoBehaviour
         }
 
         var animator = this.gameObject.GetComponent<Animator>();
-        animator.SetFloat("Velocity", Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x/5.0f));
+        var playerVelocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
+        animator.SetFloat("Velocity", Mathf.Abs(playerVelocity.x/5.0f));
+        //animator.SetFloat("VerticalVelocity", Mathf.Abs(playerVelocity.y));
         //this.Booty.text = "x" + Coins;
 
         if (this.transform.position.x >= this.goalMarkPositionX)
