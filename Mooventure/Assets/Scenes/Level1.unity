@@ -2747,7 +2747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500084726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0.76, z: 0}
+  m_LocalPosition: {x: 1.3, y: -1.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1598601743}
@@ -2985,7 +2985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26adc3ffc8d500a4b824b66a0806e86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DrawLogic: 1
+  DrawLogic: 0
   FocusDistance: 1.5
   ThresholdDistance: 4.5
   LerpDuration: 0.35
@@ -7760,6 +7760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AggroDistance: 5
+  AggroDropDistance: 7
   IdleDistance: 2.5
   AggroSpeed: 4
   IdleSpeed: 3
@@ -8376,14 +8377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116caf1077aa3fb4cb91ad9fac33ef62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  window: {fileID: 81247766401102907, guid: 6a14be9a89f226244ae58e9f930e7821, type: 3}
-  parent: {fileID: 279806185}
-  Booty: {fileID: 0}
-  Mushrooms: 0
-  Skulls: 0
-  Gems: 0
-  Coins: 0
-  goalMarkPositionX: 164
   MoveSpeed: 7
   JumpHeight: 22
 --- !u!61 &1598601745
@@ -10200,6 +10193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AggroDistance: 5
+  AggroDropDistance: 0
   IdleDistance: 2.5
   AggroSpeed: 4.5
   IdleSpeed: 3
@@ -11273,6 +11267,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1772030955188303634, guid: d52fc7a9f0e9afb499a51ae83f610a76,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1772030955188303636, guid: d52fc7a9f0e9afb499a51ae83f610a76,
         type: 3}
       propertyPath: m_RootOrder

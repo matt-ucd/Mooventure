@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurkeyController : MonoBehaviour
 {
     [SerializeField] private float AggroDistance;
+    [SerializeField] private float AggroDropDistance;
     [SerializeField] private float IdleDistance;
     [SerializeField] private float AggroSpeed;
     [SerializeField] private float IdleSpeed;
@@ -102,10 +103,13 @@ public class TurkeyController : MonoBehaviour
         if (Vector3.Distance(this.TurkeyPosition, this.PlayerPosition) <= this.AggroDistance)
         {
             this.IsAggro = true;
+            this.GetComponent<Animator>().SetBool("IsAggro", true);
         }
-        else
+
+        if (Vector3.Distance(this.TurkeyPosition, this.PlayerPosition) >= this.AggroDropDistance)
         {
             this.IsAggro = false;
+            this.GetComponent<Animator>().SetBool("IsAggro", false);
         }
 
         if (this.IsFleeing)
