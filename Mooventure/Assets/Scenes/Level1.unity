@@ -3893,6 +3893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b501c1d3bd1154fa0b0324410888cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 0}
+  parent: {fileID: 0}
   Booty: {fileID: 0}
   Mushrooms: 0
   Skulls: 0
@@ -8446,6 +8448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b501c1d3bd1154fa0b0324410888cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 81247766401102907, guid: 6a14be9a89f226244ae58e9f930e7821, type: 3}
+  parent: {fileID: 279806185}
   Booty: {fileID: 0}
   Mushrooms: 0
   Skulls: 0

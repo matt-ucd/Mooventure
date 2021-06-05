@@ -5,6 +5,9 @@ using Captain.Command;
 
 public class CaptainController : MonoBehaviour
 {
+    [SerializeField] private GameObject window;
+    [SerializeField] private GameObject parent;
+
     private ICaptainCommand Fire1;
     private ICaptainCommand Fire2;
     private ICaptainCommand Right;
@@ -13,6 +16,7 @@ public class CaptainController : MonoBehaviour
     private const int MUSHROOM_VALUE = 1;
     private const int SKULL_VALUE = 2;
     private const int GEM_VALUE = 3;
+    private int window_done = 0;
     //private float pushAmount = 0;
 
     public UnityEngine.UI.Text Booty;
@@ -77,8 +81,12 @@ public class CaptainController : MonoBehaviour
 
         if (this.transform.position.x >= this.goalMarkPositionX)
         {
-            // pop up success window, audio clip
-            Debug.Log("not colliding but checking x position! Arrive! pop up success window!");
+            if(window_done == 0)
+            {
+                Instantiate(window, parent.transform);
+                window_done = 1;
+                Time.timeScale = 0.0f;
+            }
         }
     }
 
@@ -118,9 +126,7 @@ public class CaptainController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Goal_Mark")
         {
-            // pop up success window, audio clip
-            Debug.Log("Arrive! pop up success window!");
-            // not working
+            Instantiate(window, parent.transform);
         }
     }
 }
