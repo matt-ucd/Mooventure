@@ -71,13 +71,26 @@ public class TurkeyController : MonoBehaviour
 
     void FleeingTurkey()
     {
+        if (this.TurkeyPosition.x >= this.PlayerPosition.x)
+        {
+            this.Direction = 1;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            this.Direction = -1;
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
 
+        this.TurkeyRB.velocity = new Vector2(this.AggroSpeed * this.Direction, this.AggroSpeed);
     }
 
     public void Damaged()
     {
         Debug.Log("Turkey runs away!");
         this.FleePointX = this.transform.position.x;
+        this.IsFleeing = true;
+        this.GetComponent<Animator>().SetTrigger("Damaged");
     }
 
     void Update()
@@ -95,17 +108,20 @@ public class TurkeyController : MonoBehaviour
             this.IsAggro = false;
         }
 
-        if (this.IsAggro)
-        {
-            this.AggroTurkey();
-        }
-        else if (this.IsFleeing)
+        if (this.IsFleeing)
         {
             this.FleeingTurkey();
         }
         else
         {
-            this.IdleTurkey();
+            if (this.IsAggro)
+            {
+                this.AggroTurkey();
+            }
+            else
+            {
+                this.IdleTurkey();
+            }
         }
     }
 }
