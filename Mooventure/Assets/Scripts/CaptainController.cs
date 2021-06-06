@@ -7,6 +7,7 @@ public class CaptainController : MonoBehaviour
 {
     [SerializeField] private GameObject window;
     [SerializeField] private GameObject parent;
+    [SerializeField] private GameObject goalBuilding;
 
     private ICaptainCommand Fire1;
     private ICaptainCommand Fire2;
@@ -26,7 +27,6 @@ public class CaptainController : MonoBehaviour
     public int Gems;
     public int Coins;
     //public float libPositionX;
-    public float goalMarkPositionX;
 
     // Start is called before the first frame update
     void Start()
@@ -81,8 +81,8 @@ public class CaptainController : MonoBehaviour
         animator.SetFloat("Velocity", Mathf.Abs(playerVelocity.x/5.0f));
         //animator.SetFloat("VerticalVelocity", Mathf.Abs(playerVelocity.y));
         //this.Booty.text = "x" + Coins;
-
-        if (this.transform.position.x >= this.goalMarkPositionX)
+        //Debug.Log(this.goalBuilding.transform.position.x);
+        if (this.transform.position.x >= this.goalBuilding.transform.position.x)
         {
             if(window_done == 0)
             {
