@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Introscript : MonoBehaviour
 {
-    public void startgame()
+    public void gomap()
     {
         SceneManager.LoadScene(3);
     }

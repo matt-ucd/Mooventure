@@ -346,7 +346,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1900849995}
         m_TargetAssemblyTypeName: Introscript, Assembly-CSharp
-        m_MethodName: startgame
+        m_MethodName: gomap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
