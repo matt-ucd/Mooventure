@@ -8,7 +8,6 @@ namespace Player.Command
 {
     public class MoveCharacterRight : ScriptableObject, IPlayerCommand
     {
-
         public void Execute(GameObject gameObject)
         {
             var rigidBody = gameObject.GetComponent<Rigidbody2D>();
