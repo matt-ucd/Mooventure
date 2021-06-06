@@ -24,7 +24,7 @@ public class Showtext : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        texts.Add("Welecome to UC Davis!\nToday would be a great day to explore the campus. If you didn’t get much opportunity to visit the school in-person, this is the perfect virtual campus tour game to tour around our campus!");
+        texts.Add("Welcome to UC Davis!\nToday would be a great day to explore the campus. If you didn’t get much opportunity to visit the school in-person, this is the perfect virtual campus tour game to tour around our campus!");
         texts.Add("Are you ready?\nLet me give you a quick tutorial before you head off on a campus tour! ");
         texts.Add("You can click on the map to start your tour. When the map is opened, select a building level to start the game.");
         texts.Add("You can control your avatar to move, jump, and shoot with arrows, space bar, and left click.");
