@@ -88,8 +88,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetButtonDown("Fire2"))
             {
-                this.Flip();
-                //this.Fire2.Execute(this.gameObject);
+                this.Fire2.Execute(this.gameObject);
             }
             if (Input.GetAxis("Horizontal") > 0.01)
             {
