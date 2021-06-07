@@ -11,7 +11,7 @@ public class DualForwardFocusCamera: MonoBehaviour
     public float LeftStageEdge;
     public float RightStageEdge;
     public GameObject Target;
-    private CaptainController PlayerController;
+    private PlayerController PlayerController;
     private Camera ManagedCamera;
     private LineRenderer CameraLineRenderer;
     private float LeftFocusBound;
@@ -31,7 +31,7 @@ public class DualForwardFocusCamera: MonoBehaviour
         // Set primary objects.
         this.CameraLineRenderer = this.gameObject.GetComponent<LineRenderer>();
         this.ManagedCamera = this.gameObject.GetComponent<Camera>();
-        this.PlayerController = this.Target.GetComponent<CaptainController>();
+        this.PlayerController = this.Target.GetComponent<PlayerController>();
         
         // Initial camera settings.
         this.CameraPosition = new Vector3(this.Target.transform.position.x - FocusDistance, this.transform.position.y, this.transform.position.z);

@@ -55,7 +55,9 @@ public class PlayerController : MonoBehaviour
         playerRB.AddForce(knockbackVector, ForceMode2D.Impulse);
         this.gameObject.GetComponent<Animator>().SetBool("IsStunned", true);
         this.StunTimer = 0.0f;
-        this.energy_time_count = 0.1f;
+
+        if (this.energy_time_count > 0.1)
+            this.energy_time_count = 0.1f;
     }
 
     public bool PlayerFacingRight()
