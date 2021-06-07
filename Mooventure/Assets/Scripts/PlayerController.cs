@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         speedref = MoveSpeed;
         this.gameObject.AddComponent<PlayerAttackCommand>();
         this.Fire1 = this.gameObject.GetComponent<PlayerAttackCommand>();
-        //this.Fire2 = this.gameObject.GetComponent<CaptainCoinGun>();
+        this.Fire2 = ScriptableObject.CreateInstance<CharacterJump>();
         this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
         this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
         this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         playerRB.AddForce(knockbackVector, ForceMode2D.Impulse);
         this.gameObject.GetComponent<Animator>().SetBool("IsStunned", true);
         this.StunTimer = 0.0f;
+        this.energy_time_count = 0.1f;
     }
 
     // Update is called once per frame
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetButtonDown("Fire2"))
             {
+                this.Fire2.Execute(this.gameObject);
             }
             if (Input.GetAxis("Horizontal") > 0.01)
             {
