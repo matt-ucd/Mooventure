@@ -12,6 +12,9 @@ TagManager:
   - Turkey
   - Goal_Mark
   - ED
+  - Intro_Background
+  - Level_Background
+  - Map_Background
   layers:
   - Default
   - TransparentFX
