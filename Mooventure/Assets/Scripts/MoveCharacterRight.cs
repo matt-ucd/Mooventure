@@ -12,10 +12,14 @@ namespace Player.Command
         {
             var rigidBody = gameObject.GetComponent<Rigidbody2D>();
             var speed = gameObject.GetComponent<PlayerController>().MoveSpeed;
+            var playerController = gameObject.GetComponent<PlayerController>();
             if (rigidBody != null)
             {
                 rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
-                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                if (!playerController.PlayerFacingRight())
+                {
+                    playerController.Flip();
+                }
             }
         }
     }

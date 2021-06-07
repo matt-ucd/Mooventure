@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float JumpHeight;
     public float KnockbackForce;
     public float StunDuration;
+    private bool isFacingRight;
     private float StunTimer;
     private IPlayerCommand Fire1;
     private IPlayerCommand Fire2;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
         this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
         this.StunTimer = this.StunDuration;
+        this.isFacingRight = true;
     }
 
     void Knockback(Collision2D collision)
@@ -56,6 +58,18 @@ public class PlayerController : MonoBehaviour
         this.energy_time_count = 0.1f;
     }
 
+    public bool PlayerFacingRight()
+    {
+        return this.isFacingRight;
+    }
+
+    public void Flip()
+    {
+        this.isFacingRight = !this.isFacingRight;
+
+        this.transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -74,7 +88,8 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetButtonDown("Fire2"))
             {
-                this.Fire2.Execute(this.gameObject);
+                this.Flip();
+                //this.Fire2.Execute(this.gameObject);
             }
             if (Input.GetAxis("Horizontal") > 0.01)
             {
