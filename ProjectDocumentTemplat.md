@@ -49,8 +49,17 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## Animation and Visuals
 
 **List your assets including their sources and licenses.**
+All visuals were created using Illustrator from the Adobe Creative Cloud.
+
+*Backgrounds*:
+[Dorm](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Backgrounds/Dorm) -
+[Level](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Backgrounds/Level%201) -
+[Map]() -
+
+*Assets*
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+...
 
 ## Input
 
@@ -67,10 +76,32 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## Audio
 
 **List your assets including their sources and licenses.**
+All music and sounds are royalty-free and sourced properly with no charge.
+
+*Background Music*:
+[Dorm Scene]() - Feel Good from Purple Planet Music
+[Level Scene]() - Quirky Moments from Purple Planet Music
+[Map Scene]() - Happy Go Lucky from Purple Planet Music
+
+*Popup Windows*:
+[Fail Window]() - from SoundJay
+[Success Window]() - from SoundBible
+
+*Sound Effects*:
+[Player receives speed boost from energy drink.]() - from SoundJay
+[Player attacks the turkey as an obstacle.]() - from SoundJay
+[Turkey gobbles when player is spotted.]() - from SoundBible
+
+*License Information*:
+[Purple Planet Music](https://www.purple-planet.com/licence-info)
+[SoundJay](https://www.soundjay.com/tos.html)
+[SoundBible](https://soundbible.com/about.php)
 
 **Describe the implementation of your audio system.**
+...
 
 **Document the sound style.** 
+...
 
 ## Gameplay Testing
 
