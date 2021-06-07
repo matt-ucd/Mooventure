@@ -7544,7 +7544,7 @@ GameObject:
   - component: {fileID: 1476296178}
   - component: {fileID: 1476296180}
   - component: {fileID: 1476296179}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Turkey
   m_TagString: Turkey
   m_Icon: {fileID: 0}
@@ -8164,7 +8164,7 @@ GameObject:
   - component: {fileID: 1598601747}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8273,6 +8273,8 @@ MonoBehaviour:
   goalBuilding: {fileID: 1326974260}
   MoveSpeed: 7
   JumpHeight: 22
+  KnockbackForce: 10
+  StunDuration: 0.5
 --- !u!61 &1598601745
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8327,7 +8329,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598601740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4b501c1d3bd1154fa0b0324410888cf, type: 3}
   m_Name: 
