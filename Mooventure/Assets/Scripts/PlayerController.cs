@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float MoveSpeed;
     public float JumpHeight;
+    public float KnockbackForce;
     private IPlayerCommand Fire1;
     private IPlayerCommand Fire2;
     private IPlayerCommand Right;
@@ -22,6 +23,22 @@ public class PlayerController : MonoBehaviour
         this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
         this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
         this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
+    }
+
+    void Knockback(Collision2D collision)
+    {
+        float direction;
+        if (collision.transform.position.x >= this.transform.position.x)
+        {
+            direction = -1.0f;
+        }
+        else
+        {
+            direction = 1.0f;
+        }
+        var knockbackVector = new Vector2(this.KnockbackForce * direction, this.KnockbackForce);
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(knockbackVector, ForceMode2D.Impulse);
+        //this.gameObject.GetComponent<Rigidbody2D>().velocity = knockbackVector;
     }
 
     // Update is called once per frame
@@ -58,6 +75,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Turkey")
         {
             Debug.Log("Ran into turkey!");
+            this.Knockback(collision);
         }
     }
 }
