@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float MoveSpeed;
     public float JumpHeight;
     public float KnockbackForce;
+    public float StunDuration;
+    private float StunTimer;
     private IPlayerCommand Fire1;
     private IPlayerCommand Fire2;
     private IPlayerCommand Right;
@@ -23,48 +25,60 @@ public class PlayerController : MonoBehaviour
         this.Jump = ScriptableObject.CreateInstance<CharacterJump>();
         this.Right = ScriptableObject.CreateInstance<MoveCharacterRight>();
         this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
+        this.StunTimer = this.StunDuration;
     }
 
     void Knockback(Collision2D collision)
     {
         float direction;
+        Vector2 knockbackVector;
+        var playerRB = this.gameObject.GetComponent<Rigidbody2D>();
+
         if (collision.transform.position.x >= this.transform.position.x)
-        {
             direction = -1.0f;
-        }
         else
-        {
             direction = 1.0f;
-        }
-        var knockbackVector = new Vector2(this.KnockbackForce * direction, this.KnockbackForce);
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(knockbackVector, ForceMode2D.Impulse);
-        //this.gameObject.GetComponent<Rigidbody2D>().velocity = knockbackVector;
+
+        knockbackVector = new Vector2(this.KnockbackForce * direction, this.KnockbackForce);
+        playerRB.velocity = Vector2.zero;
+        playerRB.AddForce(knockbackVector, ForceMode2D.Impulse);
+        this.gameObject.GetComponent<Animator>().SetBool("IsStunned", true);
+        this.StunTimer = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        var animator = this.gameObject.GetComponent<Animator>();
+        if (this.StunTimer >= this.StunDuration)
         {
-            this.Fire1.Execute(this.gameObject);
+            animator.SetBool("IsStunned", false);
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                this.Fire1.Execute(this.gameObject);
+            }
+            if (Input.GetButtonDown("Jump"))
+            {
+                this.Jump.Execute(this.gameObject);
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+            }
+            if (Input.GetAxis("Horizontal") > 0.01)
+            {
+                this.Right.Execute(this.gameObject);
+            }
+            if (Input.GetAxis("Horizontal") < -0.01)
+            {
+                this.Left.Execute(this.gameObject);
+            }
         }
-        if (Input.GetButtonDown("Jump"))
+        else
         {
-            this.Jump.Execute(this.gameObject);
-        }
-        if (Input.GetButtonDown("Fire2"))
-        {
-        }
-        if (Input.GetAxis("Horizontal") > 0.01)
-        {
-            this.Right.Execute(this.gameObject);
-        }
-        if (Input.GetAxis("Horizontal") < -0.01)
-        {
-            this.Left.Execute(this.gameObject);
+            this.StunTimer += Time.deltaTime;
         }
 
-        var animator = this.gameObject.GetComponent<Animator>();
         var playerVelocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
         animator.SetFloat("Velocity", Mathf.Abs(playerVelocity.x/5.0f));
         animator.SetFloat("VerticalVelocity", Mathf.Abs(playerVelocity.y));

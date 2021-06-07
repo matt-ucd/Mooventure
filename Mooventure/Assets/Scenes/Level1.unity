@@ -8270,6 +8270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 7
   JumpHeight: 22
+  KnockbackForce: 10
+  StunDuration: 0.5
 --- !u!61 &1598601745
 BoxCollider2D:
   m_ObjectHideFlags: 0
