@@ -138,10 +138,14 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Ran into turkey!");
             this.Knockback(collision);
         }
-        else if (collision.gameObject.tag == "ED")
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "ED")
         {
             Debug.Log("get drink");
-            Destroy(collision.gameObject);
+            Destroy(collider.gameObject);
             MoveSpeed = MoveSpeed * 2.0f;
             energy_time_count = 5.0f;
         }
