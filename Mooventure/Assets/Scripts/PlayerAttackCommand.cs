@@ -28,11 +28,13 @@ namespace Player.Command
             this.Animator.SetTrigger("Attack");
             this.AttackPoint = gameObject.transform.GetChild(0);
             this.EnemyLayer |= (1 << LayerMask.NameToLayer("Enemies"));
+            Collider2D playerCollider = this.gameObject.GetComponent<BoxCollider2D>();
 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(this.AttackPoint.position, this.AttackRange, this.EnemyLayer);
             foreach (Collider2D enemy in hitEnemies)
             {
                 enemy.GetComponent<TurkeyController>().Damaged();
+                Physics2D.IgnoreCollision(enemy, playerCollider);
             }
         }
 

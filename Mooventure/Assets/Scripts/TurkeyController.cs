@@ -12,7 +12,7 @@ public class TurkeyController : MonoBehaviour
     private Vector3 PlayerPosition;
     private Vector3 TurkeyPosition;
     private Rigidbody2D TurkeyRB;
-    private float FleePointX;
+    private Vector3 FleePoint;
     private float SpawnPointX;
     private float LeftAggroBound;
     private float LeftIdleBound;
@@ -72,6 +72,18 @@ public class TurkeyController : MonoBehaviour
 
     void FleeingTurkey()
     {
+        this.TurkeyRB.velocity = new Vector2(this.AggroSpeed * this.Direction, this.AggroSpeed);
+
+        if (Vector3.Distance(this.FleePoint, this.TurkeyPosition) >= 13)
+            Destroy(this.gameObject);
+    }
+
+    public void Damaged()
+    {
+        this.FleePoint = this.transform.position;
+        this.IsFleeing = true;
+        this.GetComponent<Animator>().SetTrigger("Damaged");
+
         if (this.TurkeyPosition.x >= this.PlayerPosition.x)
         {
             this.Direction = 1;
@@ -82,16 +94,6 @@ public class TurkeyController : MonoBehaviour
             this.Direction = -1;
             GetComponent<SpriteRenderer>().flipX = false;
         }
-
-        this.TurkeyRB.velocity = new Vector2(this.AggroSpeed * this.Direction, this.AggroSpeed);
-    }
-
-    public void Damaged()
-    {
-        Debug.Log("Turkey runs away!");
-        this.FleePointX = this.transform.position.x;
-        this.IsFleeing = true;
-        this.GetComponent<Animator>().SetTrigger("Damaged");
     }
 
     void Update()
