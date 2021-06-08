@@ -13,4 +13,9 @@ public class Introscript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void Backtomain()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
