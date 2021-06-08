@@ -16,6 +16,6 @@ public class Functionforbegin : MonoBehaviour
     }
     public void quitgame()
     {
-        
+        Application.Quit();
     }
 }
