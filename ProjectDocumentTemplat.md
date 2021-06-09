@@ -151,9 +151,22 @@ All music and sounds are royalty-free and sourced properly with no charge.
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+Gameplay testing was performed gradually along with development. Each time a new feature was added, or adjusted, that feature, along with any other features that shared interactions, would be tested. This helped to adjust the game feel as development progressed, and to find any bugs early.
 
-**Summarize the key findings from your gameplay tests.**
+### Improvements
+
+* Found player movement felt too slippery and floaty. Altered the player gravity, speed, and jump height to attain a more deseriable movement.  
+* The initial camera didn't feel quite right for a 2D platformer, so it was updated to Mario World style camera.
+* Initial knockback force from turkeys was too strong. Adjusted until it felt right.
+* The player was initially able to move during knockback, so all velocity is removed on collision, and the player is stunned for a short time.
+* Stun time during knockback took some fine-tuning to make it feel good.
+* The power-ups initially had a physical box collider, but this would sometimes cause the player to lose physically collide with them even though they were set to be destroyed on collision. They were changed to triggers, so the player cannot actually make physical contact with them, but they can still be collected.
+* Turkeys initially had only 1 distance for aggro, so if you could move in and out to make them become aggressive and passive. This didn't feel right, so a new, larger, distance was added that would cause the turkeys to lose aggro. This way they would chase the player for a while before becoming passive again.
+
+### Bugs
+* The initial Mario World camera was very buggy. At one point the camera would move continually back and forth between two points, and then the player would inexplicably fall through the ground. This was eventually fixed and the camera works correctly.
+* The player could only attack to one side regardless of the direction they faced. Had to rework the way the sprite was being flipped to also move the attack point.
+* The player was able to stick to the level boundary, and could slowly scale up the screen and off the camera. A physics material was added to the boundary with 0 friction to avoid this problem.
 
 ## Narrative Design
 
