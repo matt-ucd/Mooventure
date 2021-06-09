@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Turkey")
         {
-            //this.TurkeySound.Play();
+            SoundManagerScript.PlaySound("level-turkey-gobble");
             Debug.Log("Ran into turkey!");
             this.Knockback(collision);
         }
@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.gameObject.tag == "ED")
         {
+            SoundManagerScript.PlaySound("level-get-energy");
             Debug.Log("get drink");
             Destroy(collider.gameObject);
             if(MoveSpeed < speedref * 2)
