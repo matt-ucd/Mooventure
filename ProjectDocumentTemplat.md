@@ -86,6 +86,17 @@ All visuals were created using Illustrator from the Adobe Creative Cloud.
 
 **Add an entry for each platform or input style your project supports.**
 
+Transitions between all scenes -  In the project, to avoid crashing the player's computer  by loading too many materials at once, we decided to build different scenes and load them when necessary. This function has been achieved by the Unity scene manager. We learn this method from the Udemy tutorial. In most of the scenes, there is a game object which contains the script of transition called trans to help scene transition.
+
+Finalize all button functions- Since our project is a 2D project. The button function in unity can satisfy our requirements. Most of the buttons are used for transitions. But, some buttons also have other functions, such as the pause button in the level scene and the quit button in the start scene. When the pause button has been clicked, the game will create a pop-up window and halt the game. The pause function uses the Time.timeScale to halt the game. For the quit button. It utilizes the Application quit function to let the player quit the game. These implementation ideas are also inspired by the Udemy tutorial.
+
+Energy drink- In our game, there is an item called energy drink which provides the player a 5-second speed boost. When a player collides with an energy prefab, the prefab will be destroyed, and the character controller will double the speed of the player. The maximum time of energy drink is five seconds. Getting a new energy drink will refresh the time but not extend the time. The collision mechanism is inspired by the coin prefab of the first project.
+
+Pop-up windows - There are some pop-up windows in the game which provide necessary information and assistance to the player. The mechanism of the pop-up windows is quite simple. Each pop-up window is a prefab that contains necessary functions. When the player clicks some buttons, a clone of the pop-up window will be created. The pop-up window is on the top layer, which blocks other functions of the scene. After the player makes choices. Some functions will be executed, and the pop-up window will be destroyed. The idea of the pop-up window is from the fourth. The projectile in the project will create when the player clicks the mouth and be destroyed when colliding with the shield.
+
+Typing animation - In the intro scene. There are a series of instructions that help the player to know how to play the game. To make the instructions more vivid and easier to read. We add a typing animation to the instructions. This function has been achieved by showtext.cs. All the instructions have been assigned to a string at the beginning. Then the textbox will keep updating in certain seconds which makes the player feel like the instructions have been typed to the screen. The script also detects the click from the player to skip the text.
+
+
 ## Game Logic
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
@@ -147,6 +158,15 @@ All music and sounds are royalty-free and sourced properly with no charge.
 ## Narrative Design
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+
+The narrative design of the game is quite simple. We start the narrative design process by deciding which kind of game we want to make first. During the discussion, we find that we all miss the time which we spend on campus, and if there is a game that can help us to experience the landscape of the campus would be better. Inspired by this idea, we finally decided to make a game about UCDavis. On the one hand, this game can remind us of student life on campus. On the other hand, we also want to use this game to introduce UCDavis to other people.  Such as the history of some buildings or some interesting features about our college. 
+
+After deciding the main theme, we also consider which kind of people are our potential players. After a short discussion, we decided that our potential players might be some UC Davis students who want to re-visit the campus or someone interested in knowing UC Davis. Thus, we decided instead of creating a virtual story, we want to focus on the design of the scene and UI to add more UC Davis symbols to our game. Therefore, our game does not have any magnificent story for the player. Instead of that, we decided to add more UC Davis features to our game and introduce history to the players.
+
+UI always is the best place to convert the idea of the game designers to the player. Therefore, The main theme of our scenes is Aggie blue. We want to use this typical color to give the player a sense of familiarity. Furthermore, talking about UC Davis, cows are another symbol that we cannot forget. Therefore, in most of the scenes, there are cow-related elements. Such as the title in our stars scene. Or the energy drink which the player can encounter during the gameplay. 
+
+As for gameplay, because our main point is to let the user view the landscape of the campus, we do not plan to add any intensive battle element to the gameplay. The main idea we want to give to the player is to use the scene to remind the player of campus life or introduce the landscape and history to the player who wants to know more about UC Davis
+
 
 ## Press Kit and Trailer
 
