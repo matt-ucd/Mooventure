@@ -114,7 +114,8 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Velocity", Mathf.Abs(playerVelocity.x/5.0f));
         animator.SetFloat("VerticalVelocity", Mathf.Abs(playerVelocity.y));
 
-        if (this.transform.position.x >= this.goalBuilding.transform.position.x)
+        // if the player reaches the place before the goal building 5 units far, finish the level
+        if (this.transform.position.x >= this.goalBuilding.transform.position.x - 5.0f)
         {
             if (window_done == 0)
             {
