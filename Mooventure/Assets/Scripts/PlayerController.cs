@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     private int window_done = 0;
     private float energy_time_count;
 
+
+    // public AudioSource TurkeySound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
         this.Left = ScriptableObject.CreateInstance<MoveCharacterLeft>();
         this.StunTimer = this.StunDuration;
         this.isFacingRight = true;
+        // TurkeySound = GetComponent<AudioSource>();
     }
 
     void Knockback(Collision2D collision)
@@ -135,6 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Turkey")
         {
+            //this.TurkeySound.Play();
             Debug.Log("Ran into turkey!");
             this.Knockback(collision);
         }

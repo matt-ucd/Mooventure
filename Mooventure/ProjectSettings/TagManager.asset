@@ -15,6 +15,7 @@ TagManager:
   - Intro_Background
   - Level_Background
   - Map_Background
+  - Tutorial_Scene
   layers:
   - Default
   - TransparentFX

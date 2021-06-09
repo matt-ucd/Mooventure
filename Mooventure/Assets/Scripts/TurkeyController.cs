@@ -23,6 +23,8 @@ public class TurkeyController : MonoBehaviour
     private bool IsAggro = false;
     private bool IsFleeing = false;
 
+    
+
     void Start()
     {
         this.transform.rotation = Quaternion.Euler(0, 0, 0); // lock rotation
@@ -98,6 +100,7 @@ public class TurkeyController : MonoBehaviour
 
     void Update()
     {
+
         this.transform.rotation = Quaternion.Euler(0, 0, 0); // lock rotation
         this.TurkeyPosition = this.transform.position;
         this.PlayerPosition = GameObject.Find("Player").transform.position;
