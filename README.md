@@ -44,5 +44,5 @@ Hence, we would like to invite everyone to play with this simulation of the UC D
 ### [Trailer](https://youtu.be/wcrtbHhJNAY)
 
 # Downloads
-### [Mac]()
-### [Windows]()
+### [Mac](https://drive.google.com/drive/folders/1CrANvnNkVdn7P4eUf9FpSLNrPA4jFnjY?usp=sharing)
+### [Windows](https://drive.google.com/drive/folders/1EI_JKxMudEmzTPG8BRwADwOmbzJEpzsk?usp=sharing)
