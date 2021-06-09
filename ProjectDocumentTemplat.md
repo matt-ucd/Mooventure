@@ -45,6 +45,20 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## Movement/Physics
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+The physics system is the standard physics system implemented by Unity. Movement scripts were crafted using the Unity physics engine, with some slight modifications to certain objects:  
+
+* The gravity scale of the player was increased to 6, to give the jump less of a "floaty" feel, and to decrease the amount of sliding when a direction was released.  
+* An invisible object was placed at the beginning of the stage to prevent the player from moving off the camera. A physics material with 0 friction was added to the collider of this object to prevent the player from sticking to it, which would allow them to pseudo-climb it.  
+* Colliders for the energy drink power-ups were changed to triggers. This would allow the player to still collect them, but prevent them from being physically touched and changing the velocity of the player.  
+* Turkeys are made to ignore player collisions when fleeing to avoid the player being knocked back even after defeating them.
+
+Our movements are the abilities to go left (A or left arrow), right (D or right arrow), jump (space or right click), and attack (left click). These were implemented using the command pattern.
+
+The turkeys follow a simple script to move back and forth a specified distance from their spawn point. Once the player is within their aggro radius, the turkey will chase them until they move beyond their de-aggro radius. Once a turkey drops aggro it will run back to its' spawn area and continue moving back and forth.
+
+Turkeys attack the player by running into them, which will stop all velocity of the player, and then knock them back with a sudden force. The player will also be stunned a short duration where they can't act. Currently the player has no period of invulnerability after being hit.
+
+The player can attack the turkey by giving it a stern talking-to. Upon being thoroughly chastized, it will become sad and fly away. 
 
 ## Animation and Visuals
 
