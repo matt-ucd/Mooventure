@@ -159,6 +159,15 @@ All music and sounds are royalty-free and sourced properly with no charge.
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
+The narrative design of the game is quite simple. We start the narrative design process by deciding which kind of game we want to make first. During the discussion, we find that we all miss the time which we spend on campus, and if there is a game that can help us to experience the landscape of the campus would be better. Inspired by this idea, we finally decided to make a game about UCDavis. On the one hand, this game can remind us of student life on campus. On the other hand, we also want to use this game to introduce UCDavis to other people.  Such as the history of some buildings or some interesting features about our college. 
+
+After deciding the main theme, we also consider which kind of people are our potential players. After a short discussion, we decided that our potential players might be some UC Davis students who want to re-visit the campus or someone interested in knowing UC Davis. Thus, we decided instead of creating a virtual story, we want to focus on the design of the scene and UI to add more UC Davis symbols to our game. Therefore, our game does not have any magnificent story for the player. Instead of that, we decided to add more UC Davis features to our game and introduce history to the players.
+
+UI always is the best place to convert the idea of the game designers to the player. Therefore, The main theme of our scenes is Aggie blue. We want to use this typical color to give the player a sense of familiarity. Furthermore, talking about UC Davis, cows are another symbol that we cannot forget. Therefore, in most of the scenes, there are cow-related elements. Such as the title in our stars scene. Or the energy drink which the player can encounter during the gameplay. 
+
+As for gameplay, because our main point is to let the user view the landscape of the campus, we do not plan to add any intensive battle element to the gameplay. The main idea we want to give to the player is to use the scene to remind the player of campus life or introduce the landscape and history to the player who wants to know more about UC Davis
+
+
 ## Press Kit and Trailer
 
 **Include links to your presskit materials and trailer.**
