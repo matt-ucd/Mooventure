@@ -146,7 +146,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("get drink");
             Destroy(collider.gameObject);
-            MoveSpeed = MoveSpeed * 2.0f;
+            if(MoveSpeed < speedref * 2)
+            {
+                MoveSpeed = MoveSpeed * 2.0f;
+            }
             energy_time_count = 5.0f;
         }
     }

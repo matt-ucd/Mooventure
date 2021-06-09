@@ -8,6 +8,6 @@ public class leveltrans1 : MonoBehaviour
     public void back_to_dorm()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }
