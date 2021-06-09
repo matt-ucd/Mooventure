@@ -12,6 +12,59 @@ For the user's convenience, there are many ways you can choose to control the pl
 
 [Team Drive]([ECS 189L Group Project - Google Drive](https://drive.google.com/drive/u/0/folders/0ABOKrF96JRgFUk9PVA))
 
+# Main Roles #
+
+Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
+
+Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least 4 such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
+
+*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
+
+Here is an example:  
+*Procedural Terrain* - The background of the game consists of procedurally-generated terrain that is produced with Perlin noise. This terrain can be modified by the game at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
+
+You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
+
+
+## User Interface
+
+**Describe your user interface and how it relates to gameplay. This can be done via the template.**
+
+*Cow-print window frames* - To better integrate UC Davis elements into our game, we designed cow-print window frames. [UIs](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/ui-kit)
+
+*UC Davis gold and Aggie blue color theme* - While the cow-print are in black and white, we want to add more colors to fit in the happy vibe of the game. So we decided to include the iconic UC Davis gold and Aggie blue color theme. We modified the brightness and the saturation to make it more pop up from the game. We used this color theme for all of our buttons and UIs to make it look consistent. [UIs](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/ui-kit)
+
+*flat windows and buttons* - Windows and buttons are designed in flat 2D, because we found out that flat ones look brighter and clearer than the ones with gradient. [UIs](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/ui-kit)
+
+*shadowed texts* - Texts are designed to have a black shadow in the back and a white highlight in the front. In this way, the texts look like they pop up from the background, and make the texts easier to read. It also corresponds to the black and white cow-print theme. [Text design](https://github.com/matt-ucd/Mooventure/blob/7bbe46c8cd4f3a4bba6f8f5120d09bb64e49cb19/Mooventure/Assets/Scenes/Intro.unity#L1008)
+
+*distance bar* - We designed the distance bar with a head icon of the player as the handler and the goal building icon as the destination. In this way, the player could keep track of the remaining distance, and try to see if they can successfully reach the goal in time. [Distance bar script](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Scripts/DistanceBar.cs)
+
+*digital timer* - We designed the timer as a digital timer so that the time is shown clearly and it is easy to read. [Timer script](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Scripts/Timer.cs)
+
+*font design* - The large texts are in BaksoSapi, and the smaller texts are in PinkChicken-Regular. They are free fonts found on dafont.com. We chose these two because both of them are in a hand-written style, and we think this fit well into our game. [Fonts](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Fonts)
+
+
+## Movement/Physics
+
+**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+
+The physics system is the standard physics system implemented by Unity. Movement scripts were crafted using the Unity physics engine, with some slight modifications to certain objects:  
+
+* The gravity scale of the player was increased to 6, to give the jump less of a "floaty" feel, and to decrease the amount of sliding when a direction was released.  
+* An invisible object was placed at the beginning of the stage to prevent the player from moving off the camera. A physics material with 0 friction was added to the collider of this object to prevent the player from sticking to it, which would allow them to pseudo-climb it.  
+* Colliders for the energy drink power-ups were changed to triggers. This would allow the player to still collect them, but prevent them from being physically touched and changing the velocity of the player.  
+* Turkeys are made to ignore player collisions when fleeing to avoid the player being knocked back even after defeating them.
+
+Our movements are the abilities to go left (A or left arrow), right (D or right arrow), jump (space or right click), and attack (left click). These were implemented using the command pattern.
+
+The turkeys follow a simple script to move back and forth a specified distance from their spawn point. Once the player is within their aggro radius, the turkey will chase them until they move beyond their de-aggro radius. Once a turkey drops aggro it will run back to its' spawn area and continue moving back and forth.
+
+Turkeys attack the player by running into them, which will stop all velocity of the player, and then knock them back with a sudden force. The player will also be stunned a short duration where they can't act. Currently the player has no period of invulnerability after being hit.
+
+The player can attack the turkey by giving it a stern talking-to. Upon being thoroughly chastized, it will become sad and fly away. 
+
+
 ## Animation and Visuals
 
 **List your assets including their sources and licenses.**
