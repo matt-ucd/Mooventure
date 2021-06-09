@@ -7,22 +7,27 @@
 ### Group members
 #### Emily Gui
 Role: Animation and Visuals
+
 Subrole: Audio
 
 #### Huichueh(Jessica) Lo
 Role: Game Logics
+
 Subrole: Press Kit & Trailer
 
 #### Matt Thompson
 Role: Movement/Physics
+
 Subrole: Gameplay Testing
 
 #### Ruoyang Liu
 Role: User Interface
+
 Subrole: Game Feel
 
 #### Yubo Di
 Role: Input
+
 Subrole: Narrative Design
 
 # About the Project
