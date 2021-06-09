@@ -2,83 +2,44 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+“Moo—” The cows are on campus! If you are interested in a campus with cows, come and explore the UC Davis campus with our game “Moo-venture!”  “UC Davis campus is the largest in area of the 10 campuses in the UC system,” we have cows, horses, an arboretum, a university farm, a vineyard, and so on! It takes up  We are going to take you around the campus and introduce the buildings and fun facts about different places to you. You will also meet a lot of “friends” on your way, and you can try to interact with them!
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. It is encouraged to explain the button mappings and the most optimal gameplay strategy.**
+In this game, the goal is to reach the goal place within the time limit. On your way to the goal building, there will be obstacles to hinder you and speed boosters to help you move faster. You need to use the arrows or A and D on your keyboard to move the player left and right. You can choose to jump over obstacles with the space bar or right click. You can also attack some obstacles to keep it away from attacking you. 
 
+To success in the game, you can choose the hand gesture you like to control the player. For example, we recommend using A, D and space bar with your left hand, and attack with right hand left clicking the mouse. Or we you use the arrows with left hand, and control both jump and attack with the mouse. Always take care of the distance bar and the timer to keep track of your progress! You should also choose wisely between attacking and jumping to find the fastest way to overcome the obstacles, but feel free to explore both!
 
-**If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
-
-# Main Roles #
-
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least 4 such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The background of the game consists of procedurally-generated terrain that is produced with Perlin noise. This terrain can be modified by the game at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
-
-## User Interface
-
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-
-*Cow-print window frames* - To better integrate UC Davis elements into our game, we designed cow-print window frames. [UIs](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/ui-kit)
-
-*UC Davis gold and Aggie blue color theme* - While the cow-print are in black and white, we want to add more colors to fit in the happy vibe of the game. So we decided to include the iconic UC Davis gold and Aggie blue color theme. We modified the brightness and the saturation to make it more pop up from the game. We used this color theme for all of our buttons and UIs to make it look consistent. [UIs](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/ui-kit)
-
-*flat windows and buttons* - Windows and buttons are designed in flat 2D, because we found out that flat ones look brighter and clearer than the ones with gradient. [UIs](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/ui-kit)
-
-*shadowed texts* - Texts are designed to have a black shadow in the back and a white highlight in the front. In this way, the texts look like they pop up from the background, and make the texts easier to read. It also corresponds to the black and white cow-print theme. [Text design](https://github.com/matt-ucd/Mooventure/blob/7bbe46c8cd4f3a4bba6f8f5120d09bb64e49cb19/Mooventure/Assets/Scenes/Intro.unity#L1008)
-
-*distance bar* - We designed the distance bar with a head icon of the player as the handler and the goal building icon as the destination. In this way, the player could keep track of the remaining distance, and try to see if they can successfully reach the goal in time. [Distance bar script](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Scripts/DistanceBar.cs)
-
-*digital timer* - We designed the timer as a digital timer so that the time is shown clearly and it is easy to read. [Timer script](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Scripts/Timer.cs)
-
-*font design* - The large texts are in BaksoSapi, and the smaller texts are in PinkChicken-Regular. They are free fonts found on dafont.com. We chose these two because both of them are in a hand-written style, and we think this fit well into our game. [Fonts](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Fonts)
-
-## Movement/Physics
-
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
-The physics system is the standard physics system implemented by Unity. Movement scripts were crafted using the Unity physics engine, with some slight modifications to certain objects:  
-
-* The gravity scale of the player was increased to 6, to give the jump less of a "floaty" feel, and to decrease the amount of sliding when a direction was released.  
-* An invisible object was placed at the beginning of the stage to prevent the player from moving off the camera. A physics material with 0 friction was added to the collider of this object to prevent the player from sticking to it, which would allow them to pseudo-climb it.  
-* Colliders for the energy drink power-ups were changed to triggers. This would allow the player to still collect them, but prevent them from being physically touched and changing the velocity of the player.  
-* Turkeys are made to ignore player collisions when fleeing to avoid the player being knocked back even after defeating them.
-
-Our movements are the abilities to go left (A or left arrow), right (D or right arrow), jump (space or right click), and attack (left click). These were implemented using the command pattern.
-
-The turkeys follow a simple script to move back and forth a specified distance from their spawn point. Once the player is within their aggro radius, the turkey will chase them until they move beyond their de-aggro radius. Once a turkey drops aggro it will run back to its' spawn area and continue moving back and forth.
-
-Turkeys attack the player by running into them, which will stop all velocity of the player, and then knock them back with a sudden force. The player will also be stunned a short duration where they can't act. Currently the player has no period of invulnerability after being hit.
-
-The player can attack the turkey by giving it a stern talking-to. Upon being thoroughly chastized, it will become sad and fly away. 
+Team Drive: 
 
 ## Animation and Visuals
 
 **List your assets including their sources and licenses.**
 All visuals were created using Illustrator from the Adobe Creative Cloud.
 
-*Backgrounds*:
+*Start Scene (Menu)* - This is the opening page of the game, displaying the cow-print title "**Mooventure**" and the menu that features two **buttons** (listed under the User Interface section above) that allows the player to start or quit the game. The background of the scene is this **dorm**, giving the player a sneak peek before playing the game!
 
-[Dorm](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Backgrounds/Dorm) -
+*Intro Scene (Tutorial)* - This scene features a Resident Advisor (**RA**) character that walks the player through the character, introducing the game's purpose, how the player can move around, jump, and attack, and what the player will encounter while they explore campus through the levels! Same as the Start Scene, the background of this scene is the **dorm**.
 
-[Level](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Backgrounds/Level%201) -
+*Dorm Scene (Base)* - Here, the player can see their **character** for the first time in their **dorm** and test out their actions that they learned from the tutorial before exploring campus! The player can access this scene after watching or skipping the Intro Scene, and here, the player can revisit the Intro Scene if they need a refresher or check out the map by clicking on the labelled Gold and Blue **posters** (listed under the User Interface section above) on the wall.
 
-[Map]() -
+*Level1 Scene (Gameplay)* - This is where the fun begins! Here, the player tries to reach **Shield Library** within the one-minute time limit, encountering **turkeys as obstacles** and **energy drinks as speed boosters** along the way. The background of this scene is made up of several **separate components (sky, buildings, trees, etc.)** that have been overlapped and combined together in order to create a beautiful, scenic view of the campus. The Shields Library is that the right end of this scene, and once the player reaches the front of the building, a pop up window will appear, introducing the library to the player.
 
+*Map Scene (Level Navigation)* - To explore campus and visit the different buildings on campus, the player will access this scene to explore the **campus**. [Map Scene]([Mooventure/map-scene.png at trunk · matt-ucd/Mooventure (github.com)](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Resources/Backgrounds/Level 1/map-scene.png)) is used at the background image for when the player visits the map, and in this scene, the player can view the different buildings / levels they can can visit. These three buildings () are implemented as buttons, which lead the player directly into the level. So far, the **Shields Library** level is live, and though the **other levels are "under construction"**, these were still placed on the map to display supplemental ideas we had for the game!
 
-*Assets*
+- [Map Scene (campus)]([Mooventure/map-scene.png at trunk · matt-ucd/Mooventure (github.com)](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Resources/Backgrounds/Level 1/map-scene.png))
+- [Level Scene (sky, sun, clouds, buildings, trees, road, library)]([Mooventure/Mooventure/Assets/Resources/Backgrounds/Level 1 at trunk · matt-ucd/Mooventure (github.com)](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Backgrounds/Level 1))
+- [Dorm Scene (with and without poster buttons)]([Mooventure/Mooventure/Assets/Resources/Backgrounds/Dorm at trunk · matt-ucd/Mooventure (github.com)](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Backgrounds/Dorm))
+- [Static Visuals (player character, turkey, energy drink)](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Resources/Sprites/Character.png)
+- [Animated Visuals (player, turkey, energy drink)]([Mooventure/Mooventure/Assets/Resources/Animations at trunk · matt-ucd/Mooventure (github.com)](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Animations)) 
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-...
+With the pandemic, many new students have not yet had the opportunity to experience campus in-person, so we wanted to create a fun, light-hearted game for these students to allow them to explore campus virtually! Here, we incorporated world-exploring and 2D platformer experiences into our gameplay to make the user's journey engaging and exciting!
+
+To create a cheerful, happy atmosphere, we decided to use light and bright colors throughout each scene and with each individual component. These visuals were also enhanced with subtle shadows and gradients to bring more dimension and create more depth to the user's perspective. For the player's character, we decided to use a black-and-white line art style, which seems very simple and clean, to imitate a hand-drawn visual. Also, the user interface in this game, such as the popup windows and the buttons, also have a flat design (no gradients or shadows) as well. This not only allows makes these components stand out the user, but it also highlights what exactly the user can interact with directly, creating a nice contrast between interactions. For the [animations](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/Resources/Animations), we created different frames for each moving component, which are the [player](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Resources/Sprites/Character.png)), speed boosters ([energy drinks](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Resources/Sprites/Energy drink.png)), and obstacles ([turkeys](https://github.com/matt-ucd/Mooventure/blob/trunk/Mooventure/Assets/Resources/Sprites/Turkey.png)). 
+
+For an extensive deep dive into the decision-making process and the choices made on the visuals and animations, please check out the [Visual Style Guide](https://docs.google.com/document/d/18Xc7zdXNgCwSsPZSjzJqdy3TAc0sKruAAQBtJ29eevg/edit?usp=sharing)!
 
 ## Input
 
@@ -94,7 +55,7 @@ Finalize all button functions- Since our project is a 2D project. The button fun
 Energy drink- In our game, there is an item called energy drink which provides the player a 5-second speed boost. When a player collides with an energy prefab, the prefab destroys itself, and the character controller will double the speed of the player. The maximum time of energy drink is five seconds. Getting a new energy drink will refresh the time but not extend the time. The collision mechanism is inspired by the [mechanism of coin prefab in the first project](https://github.com/dr-jam/CommandPatternExercise/blob/3c2ca1930af2b6de60823219cbee03328a42edb4/Captain/Assets/Scripts/CaptainController.cs#L55).
 
 Pop-up windows - There are some pop-up windows in the game which provide necessary information and assistance to the player. The mechanism of the pop-up windows is quite simple. Each pop-up window is a prefab that contains necessary functions. When the player clicks some buttons, a clone of the pop-up window will be created. The pop-up window is on the top layer, which blocks other functions of the scene. After the player makes choices. Some functions will be executed, and the pop-up window will be destroyed. The idea of the pop-up window is get form Last project’s [ManualFire.cs](https://github.com/dr-jam/FactoryExercise/blob/976d6c82fa1b79d9ab205da5c05490db841618a0/Aegis/Assets/Scripts/ManualFire.cs#L5).
- 
+
 Typing animation - In the intro scene. There are a series of instructions that help the player to know how to play the game. To make the instructions more vivid and easier to read. We add a typing animation to the instructions. This function has been achieved by showtext.cs. All the instructions have been assigned to a string at the beginning. Then the textbox will keep updating in certain seconds which makes the player feel like the instructions have been typed to the screen. The script also detects the click from the player to skip the text. This also inspired by [Udemy tutorial by Ben Tristem](https://www.udemy.com/course/unitycourse/learn/lecture/10602858#overview).
 
 
@@ -107,7 +68,9 @@ Typing animation - In the intro scene. There are a series of instructions that h
 ## Audio
 
 **List your assets including their sources and licenses.**
-All music and sounds are royalty-free and sourced properly with no charge.
+All music and sounds are royalty-free and sourced with no charge.
+
+*License Information*: [Purple Planet Music](https://www.purple-planet.com/licence-info), [SoundJay](https://www.soundjay.com/tos.html), [SoundBible](https://soundbible.com/about.php)
 
 *Background Music*:
 
@@ -116,7 +79,6 @@ All music and sounds are royalty-free and sourced properly with no charge.
 [Level Scene]() - Quirky Moments from Purple Planet Music
 
 [Map Scene]() - Happy Go Lucky from Purple Planet Music
-
 
 *Popup Windows*:
 
@@ -133,22 +95,25 @@ All music and sounds are royalty-free and sourced properly with no charge.
 
 [Turkey gobbles when player is spotted.]() - from SoundBible
 
-
-*License Information*:
-
-[Purple Planet Music](https://www.purple-planet.com/licence-info)
-
-[SoundJay](https://www.soundjay.com/tos.html)
-
-[SoundBible](https://soundbible.com/about.php)
-
 **Describe the implementation of your audio system.**
 
-...
+We implemented the background music by creating GameObjects in each scene with audio source .mp3 files and the Tags <Intro_Background>, <Level_Background>, <Map_Background> with their respective DontDestroy.cs, DontDestroyLevel.cs, and DontDestroyMap.cs scripts. In these scripts, we declare GameObjects[] array with the tags and destroy the objects of the tag that are not meant to play the audio in that specific scene.  Some Citation: 
+
+For the implementation of the sound effects used in player's collision with the turkeys and the energy drinks, we added a SoundManager script that does what we did with background music, except this time completely hardcoded. We implement the sound effects in the level scene this way because player's interaction with the objects are done in PlayerController.cs. Hence, this is the most efficient method of sound effect implementation. 
+
+*Citations:*
+
+For background music: https://www.youtube.com/watch?v=JKoBWBXVvKY
+
+For sound effects: https://www.youtube.com/watch?v=8pFlnyfRfRc)
 
 **Document the sound style.** 
 
-...
+[*Background Music and Sound Effects*](https://github.com/matt-ucd/Mooventure/tree/trunk/Mooventure/Assets/sounds)
+
+Because our game's targeted audience is new students and its purpose is to introduce the UC Davis campus, we wanted our game to have a fun and welcoming atmosphere! For each of our three background visuals (dorm, map, level), we selected a different music to play in the background to create more differentiation when the player switches between scenes. These three soundtracks all have a cheerful vibe to them, establishing a light-hearted atmosphere throughout the game, and the carefree and serene pacing of these music selections allows the player to navigate through the game and explore the campus at their own leisure.
+
+We also added sound effects to make the game feel more immersive to the player. Across all scenes, we implemented a quick, chirpy sound for button clicks to give the player feedback as they navigate through the game. For the level scene, we added sounds effects for the pop-up windows and the player's interactions with the speed boosters and obstacles during active gameplay. Once they open up, both pop-up windows play a trumpet sound -- the fail window sad, downcast tune, while the success window plays a happy, congratulatory tune! The turkey also plays a turkey gobble noise every time it spots the player and starts charging at them angrily. Having these sound effects not only make the game more responsive and intuitive, but they also add humor to the gameplay and contribute to the happy, light-hearted tone of the game!
 
 ## Gameplay Testing
 
