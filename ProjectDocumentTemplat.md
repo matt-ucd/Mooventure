@@ -45,6 +45,20 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## Movement/Physics
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+The physics system is the standard physics system implemented by Unity. Movement scripts were crafted using the Unity physics engine, with some slight modifications to certain objects:  
+
+* The gravity scale of the player was increased to 6, to give the jump less of a "floaty" feel, and to decrease the amount of sliding when a direction was released.  
+* An invisible object was placed at the beginning of the stage to prevent the player from moving off the camera. A physics material with 0 friction was added to the collider of this object to prevent the player from sticking to it, which would allow them to pseudo-climb it.  
+* Colliders for the energy drink power-ups were changed to triggers. This would allow the player to still collect them, but prevent them from being physically touched and changing the velocity of the player.  
+* Turkeys are made to ignore player collisions when fleeing to avoid the player being knocked back even after defeating them.
+
+Our movements are the abilities to go left (A or left arrow), right (D or right arrow), jump (space or right click), and attack (left click). These were implemented using the command pattern.
+
+The turkeys follow a simple script to move back and forth a specified distance from their spawn point. Once the player is within their aggro radius, the turkey will chase them until they move beyond their de-aggro radius. Once a turkey drops aggro it will run back to its' spawn area and continue moving back and forth.
+
+Turkeys attack the player by running into them, which will stop all velocity of the player, and then knock them back with a sudden force. The player will also be stunned a short duration where they can't act. Currently the player has no period of invulnerability after being hit.
+
+The player can attack the turkey by giving it a stern talking-to. Upon being thoroughly chastized, it will become sad and fly away. 
 
 ## Animation and Visuals
 
@@ -148,7 +162,8 @@ All music and sounds are royalty-free and sourced properly with no charge.
 
 *Introduction/tutorial scene* - We consciously noticed that it would be helpful to have a introduction and a brief tutorial before the game starts. However, we debated about how to encourage the players to watch the tutorial. We thought about having an attention-attracting "intro" button or giving a forced tutorial at the beginning. After discussions, we decided to add a pop-up window at the beginning, where when you click on the "start" button, it will ask you to go over an introduction. After you finished it or skipped it, you can still access it by clicking on the "intro" button later. This helps the player to get a better overview of our game backgrounds and how they should play the game.
 
-*Interaction between the player and the turkey* - The player was designed to "die" if she is hurt by the turkey. However, it might be too frustrating if the player is not familiar with the attack technic. So we decided to change the interaction mechanism between the player and the turkey. Instead of dying directly, we added a "knockback" mechanism, in which the player would be not able to move forward for a certain time if she is hurt by the tureky. This mechanism fits well into the game because it is timed, and it also helps the player to survive longer in the game.
+*Interaction between the player and the turkey* - The player was designed to "die" if she is hurt by the turkey. However, it might be too frustrating if the player is not familiar with the attack technic. So we decided to change the interaction mechanism between the player and the turkey. Instead of dying directly, we added a "knockback" effect, in which the player would be pushed back and not able to move right after if she is hurt by the turkey. This mechanism fits well into the game because it is timed, and it also helps the player to survive longer in the game.
 
 *Jump control* - In Unity, the left and right movements are bound to both left and right arrows and "A" and "D." And we also want to have a "jump" and an "attack" keyboard control. At first, we bound "jump" to the space bar, and "attack" to the left click on mouse. However, when we try to play the game, we find that it is a little hard to use left, right arrows, space bar and the mouse click at the same time. Therefore, we decided to add right click on mouse as "jump" as well so that players can freely choose the combination they are used to and have a better gaming experience.
 
+*Buttons for transitions between scenes* - We designed to go back to the dorm scene every time when the player finish a level. However, we were ahead of time and added a map scene for the player to choose the level. We found that it would be more convenient for the player to select a different level directly after finishing one level instead of clicking on map every time. We also found out that there is no way for the player to go back to the main menue and quit the game if the player finished a level. Therefore, we added a menu button to connect the dorm scene with the main game menu to have a smoother transition.
