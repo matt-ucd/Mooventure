@@ -6,11 +6,11 @@
 
 ## Gameplay Explanation ##
 
-In this game, the goal is to reach the goal place within the time limit. On your way to the goal building, there will be obstacles to hinder you and speed boosters to help you move faster. You need to use the arrows or A and D on your keyboard to move the player left and right. You can choose to jump over obstacles with the space bar or right click. You can also attack some obstacles to keep it away from attacking you. 
+In this game, the goal is to reach your destination, the building, within the time limit. As you play through the level to reach the building, which is located at the very right end of the level, there will be obstacles (turkeys) to hinder you and speed boosters (energy drinks) to help you move faster. You need to use the arrows or A and D on your keyboard to move the player left and right. To avoid the obstacles, you can choose to jump over the turkeys with the space bar or right click. You can also counter-attack the turkey to make them fly away. 
 
-To success in the game, you can choose the hand gesture you like to control the player. For example, we recommend using A, D and space bar with your left hand, and attack with right hand left clicking the mouse. Or we you use the arrows with left hand, and control both jump and attack with the mouse. Always take care of the distance bar and the timer to keep track of your progress! You should also choose wisely between attacking and jumping to find the fastest way to overcome the obstacles, but feel free to explore both!
+For the user's convenience, there are many ways you can choose to control the player. For example, we recommend hovering over the A and D keys and space bar with your left hand, and hovering over the mouse with your right hand to that you can left-click to attack. Another method you could try out is using the arrow keys with left hand to move your player in different directions, and control both jump and attack with the mouse in your right hand. Do not forget that there is a timer counting down how much time have left to reach the building and a distance bar that is keeping track of your progress as you go. You should also choose wisely between attacking and jumping to find the fastest way to overcome the obstacles, but feel free to explore both!
 
-Team Drive: 
+[Team Drive]([ECS 189L Group Project - Google Drive](https://drive.google.com/drive/u/0/folders/0ABOKrF96JRgFUk9PVA))
 
 ## Animation and Visuals
 
@@ -63,6 +63,10 @@ Typing animation - In the intro scene. There are a series of instructions that h
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
+The interpretation of the Game Logic role was to keep a documentation of the progress and work done for our game throughout the three weeks we had to work on the game. All documentation regarding our game progress, states, and data used were done in a Master Shared Folder using Google Drive. There’s a main GoogleSheet that has access to the tasks, timeline, and other logistics of the game. See [here](https://docs.google.com/spreadsheets/d/1ynzckEy1m7fSg_NK0vH7rjGVvV6vhkn1GI6IUPYEISM/edit?usp=sharing) for the Master Sheet. On the master sheet, I primarily keep track of the Tasks assignment and timeline. Since we had roughly three weeks to work on the project, there are three main categories of the game state that we aimed to finish for each week:  Week1: Assets, Game Menu, one Game Level, and Player movement Week2: Integrate UI, Visuals, and player animation and interaction Week3: Refine & Improve game levels, popups, transition, and menu Then, breaking it down into tasks to do in each week, everyone is a task owner to some tasks that their roles or aspects others need help working on and a progress bar is given. I included the option for a Gantt Chart, but everyone seemed to be satisfied with the Progress Bar so we stuck to that only.  The Master sheet also has a Logistic sub sheet where links for meeting, github, and meeting notes are at. For every meeting, a google doc is created and all the progress, concerns, and next steps that were discussed in the meeting were recorded there.
+
+
+
 # Sub-Roles
 
 ## Audio
@@ -70,7 +74,7 @@ Typing animation - In the intro scene. There are a series of instructions that h
 **List your assets including their sources and licenses.**
 All music and sounds are royalty-free and sourced with no charge.
 
-*License Information*: [Purple Planet Music](https://www.purple-planet.com/licence-info), [SoundJay](https://www.soundjay.com/tos.html), [SoundBible](https://soundbible.com/about.php)
+*License Information*: [Purple Planet Music](https://www.purple-planet.com/licence-info) | [SoundJay](https://www.soundjay.com/tos.html) | [SoundBible](https://soundbible.com/about.php)
 
 *Background Music*:
 
@@ -103,9 +107,9 @@ For the implementation of the sound effects used in player's collision with the 
 
 *Citations:*
 
-For background music: https://www.youtube.com/watch?v=JKoBWBXVvKY
+[Background music](https://www.youtube.com/watch?v=JKoBWBXVvKY)
 
-For sound effects: https://www.youtube.com/watch?v=8pFlnyfRfRc)
+[Sound effects](https://www.youtube.com/watch?v=8pFlnyfRfRc)
 
 **Document the sound style.** 
 
@@ -121,7 +125,7 @@ Gameplay testing was performed gradually along with development. Each time a new
 
 ### Improvements
 
-* Found player movement felt too slippery and floaty. Altered the player gravity, speed, and jump height to attain a more deseriable movement.  
+* Found player movement felt too slippery and floaty. Altered the player gravity, speed, and jump height to attain a more desirable movement.  
 * The initial camera didn't feel quite right for a 2D platformer, so it was updated to Mario World style camera.
 * Initial knockback force from turkeys was too strong. Adjusted until it felt right.
 * The player was initially able to move during knockback, so all velocity is removed on collision, and the player is stunned for a short time.
@@ -151,9 +155,21 @@ As for gameplay, because our main point is to let the user view the landscape of
 
 **Include links to your presskit materials and trailer.**
 
+PressKit link: http://jlo0507.github.io/ecs189l/ 
+
+Trailer Link: https://youtu.be/wcrtbHhJNAY  
+
+*Music Credits for Trailer*: 
+
+First half - Sense Of Loss from Purple Planet Music
+
+Second Half - Feel Good from Purple Planet Music
+
+(License information listed in Audio above.)
+
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
-
+How did you choose what to show in the trailer? Why did you choose your screenshots? For the Press Kit, we decided to make it from scratch to have full power on the implementation and design of the page. We used the same color schemes we have in the game. For the screenshots, I just decided to include the main components of our game scenes. On the Press Kit, we have multiple sections dedicated to all the aspects of the game that we want to let our audience know, which include game description, trailer, screenshots, and our team bio.  For the trailer, I took some b-roll shots from two YouTube sources: [AggieStudio](https://www.youtube.com/watch?v=e3ytGlr6WSg) and [Jerry Dong](https://youtu.be/oJ4L23aKJiA) for the first half of the trailer. We wanted to start the trailer with real footage of the campus during COVID and SIP to explain the purpose of our game. Then, with a happier tone, introduce some playthrough footage of our actual game! By showing the trailer in this flow, the viewers have a better understanding and motivation to do that “virtual tour” with our game.
 
 ## Game Feel
 
@@ -165,4 +181,4 @@ As for gameplay, because our main point is to let the user view the landscape of
 
 *Jump control* - In Unity, the left and right movements are bound to both left and right arrows and "A" and "D." And we also want to have a "jump" and an "attack" keyboard control. At first, we bound "jump" to the space bar, and "attack" to the left click on mouse. However, when we try to play the game, we find that it is a little hard to use left, right arrows, space bar and the mouse click at the same time. Therefore, we decided to add right click on mouse as "jump" as well so that players can freely choose the combination they are used to and have a better gaming experience.
 
-*Buttons for transitions between scenes* - We designed to go back to the dorm scene every time when the player finish a level. However, we were ahead of time and added a map scene for the player to choose the level. We found that it would be more convenient for the player to select a different level directly after finishing one level instead of clicking on map every time. We also found out that there is no way for the player to go back to the main menue and quit the game if the player finished a level. Therefore, we added a menu button to connect the dorm scene with the main game menu to have a smoother transition.
+*Buttons for transitions between scenes* - We designed to go back to the dorm scene every time when the player finish a level. However, we were ahead of time and added a map scene for the player to choose the level. We found that it would be more convenient for the player to select a different level directly after finishing one level instead of clicking on map every time. We also found out that there is no way for the player to go back to the main menu and quit the game if the player finished a level. Therefore, we added a menu button to connect the dorm scene with the main game menu to have a smoother transition.
