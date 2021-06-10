@@ -36,7 +36,7 @@ Ever since SIP started, the current freshmen and sophomores did not really have 
 Hence, we would like to invite everyone to play with this simulation of the UC Davis campus by visiting different iconic places at the university!
 
 # About the Game
-“Moo—” The cows are on campus! If you are interested in a campus with cows, come and explore the UC Davis campus with our game “Moo-venture!” “UC Davis campus is the largest in area of the 10 campuses in the UC system,” we have cows, horses, an arboretum, a university farm, a vineyard, and so on! It takes up We are going to take you around the campus and introduce the buildings and fun facts about different places to you. You will also meet a lot of “friends” on your way, and you can try to interact with them!
+“Moo—” The cows are on campus! If you are interested in a campus with cows, come and explore the UC Davis campus with our game “Moo-venture!” “UC Davis campus is the largest in area of the 10 campuses in the UC system,” we have cows, horses, an arboretum, a university farm, a vineyard, and so on! We are going to take you around the campus and introduce the buildings and fun facts about different places to you. You will also meet a lot of “friends” on your way, and you can try to interact with them!
 
 ### [Project Documentation](https://github.com/matt-ucd/Mooventure/blob/trunk/ProjectDocumentTemplat.md)
 ### [Visual Style Guide](https://docs.google.com/document/d/18Xc7zdXNgCwSsPZSjzJqdy3TAc0sKruAAQBtJ29eevg/edit?usp=sharing)
