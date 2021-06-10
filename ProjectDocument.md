@@ -2,7 +2,9 @@
 
 ## Summary ##
 
-“Moo—” The cows are on campus! If you are interested in a campus with cows, come and explore the UC Davis campus with our game “Moo-venture!”  “UC Davis campus is the largest in area of the 10 campuses in the UC system,” we have cows, horses, an arboretum, a university farm, a vineyard, and so on! It takes up  We are going to take you around the campus and introduce the buildings and fun facts about different places to you. You will also meet a lot of “friends” on your way, and you can try to interact with them!
+“Moo—” Cows on a university campus? We must be at UC Davis!
+
+Come and explore the UC Davis campus with our game “Mooventure”! Due to the pandemic, new students have yet to actually see the campus in-person, so we wanted to give you all an opportunity to explore UC Davis with this fun, virtual tour! We are going to take you around campus and introduce its iconic buildings, as well as a few fun facts about them, to you. You will also meet a lot of “friends” on your way, so feel free to interact with them to see what happens!
 
 ## Gameplay Explanation ##
 
